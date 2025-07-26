@@ -940,23 +940,39 @@
         opacity: 1;
         transform: translateY(0);
     }
-/* Responsive Design */
+/* ─────────── 1. TABLET & SMALL‑DESKTOPS ─────────── */
 @media (max-width: 1024px) {
-    .projects-section {
-      flex-direction: column;
-      gap: 3rem;
+    /* ==== PROJECTS SECTION ==== */
+    .projects-section            { flex-direction: column; gap: 3rem; }
+  
+    .projects-image-container    { position: relative; top: 0; order: -1; }
+  
+    /* ----   CAROUSEL   ---- */
+    .projects-carousel-container {      /* new wrapper */
+      width: 100%;                 /* never wider than screen   */
+      overflow-x: hidden;          /* cut off excess horizontally */
     }
   
-    .projects-image-container {
-      position: relative;
-      top: 0;
-      order: -1;
+    .projects-carousel {
+      display: flex;               /* makes snap scrolling work */
+      gap: 1rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      max-width: 100%;             /* critical: prevents growth */
+      padding: 0 1rem;             /* gives a little side bleed */
+      box-sizing: border-box;
     }
   
-    .experience-container {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    .project-card {
+      flex: 0 0 clamp(280px, 75vw, 320px);  /* responsive width     */
+      scroll-snap-align: start;
     }
+  
+    .carousel-nav { display: none; }
+  
+    /* ==== HERO & EXPERIENCE ==== */
+    .experience-container { grid-template-columns: 1fr; gap: 2rem; }
   
     .hero {
       grid-template-columns: 1fr;
@@ -964,39 +980,20 @@
       gap: 2rem;
     }
   
-    .hero-image {
-      order: -1;
-    }
-  
-    .projects-carousel {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-    }
-  
-    .project-card {
-      min-width: 300px;
-      scroll-snap-align: start;
-    }
-  
-    .carousel-nav {
-      display: none;
-    }
+    .hero-image { order: -1; }
   }
   
+  /* ─────────── 2. LARGE PHONES & SMALL TABLETS ─────────── */
   @media (max-width: 768px) {
-    .hero {
-        padding-top: 100px; /* Slightly more to ensure spacing */
-      }
-    .mobile-menu {
-      display: flex;
-    }
+    /* NAV */
+    .mobile-menu { display: flex; }
   
     .nav-links {
       position: fixed;
       top: 100%;
       left: 0;
       width: 100%;
-      background: rgba(10, 10, 10, 0.98);
+      background: rgba(10,10,10,0.98);
       backdrop-filter: blur(30px);
       flex-direction: column;
       padding: 2rem;
@@ -1007,95 +1004,48 @@
       visibility: hidden;
       transition: all 0.3s ease;
     }
+    .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
   
-    .nav-links.active {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
-    }
+    /* SPACING */
+    .section     { padding: 4rem 0; }
+    .container   { padding: 0 1rem; }
   
-    .nav-links li {
-      animation: none;
-      opacity: 1;
-    }
-  
-    .section {
-      padding: 4rem 0;
-    }
-  
-    .container {
-      padding: 0 1rem;
-    }
-  
+    /* HERO */
     .hero {
-      padding: 0 1rem;
+      padding: 100px 1rem 0;      /* +top padding keeps avatar clear of nav */
       min-height: 80vh;
     }
+    .hero-title  { font-size: clamp(2.5rem, 8vw, 4rem); }
   
-    .hero-title {
-      font-size: clamp(2.5rem, 8vw, 4rem);
-    }
+    /* CAROUSEL overrides (inherit from tablet rules, tweak if needed) */
+    .projects-carousel { gap: 0.8rem; }
+    .project-card      { flex-basis: clamp(260px, 85vw, 300px); }
   
-    .projects-carousel {
-      flex-direction: row;
-      gap: 1rem;
-    }
-  
-    .project-card {
-      min-width: 280px;
-    }
-  
+    /* GRIDS -> single column  */
     .skills-grid,
-    .certifications-grid {
-      grid-template-columns: 1fr;
-    }
+    .certifications-grid { grid-template-columns: 1fr; }
   
-    .cursor, .cursor-follower {
-      display: none;
-    }
+    /* custom cursor off */
+    .cursor, .cursor-follower { display: none; }
   }
   
+  /* ─────────── 3. VERY SMALL PHONES ─────────── */
   @media (max-width: 480px) {
-    nav {
-      padding: 1rem;
-    }
+    nav          { padding: 1rem; }
+    .hero-title  { font-size: 2.2rem; }
   
-    .hero-title {
-      font-size: 2.2rem;
-    }
-  
-    .project-card {
-      min-width: 260px;
-      padding: 1.2rem;
-    }
-  
+    .project-card,
     .skill-card,
     .cert-card,
-    .experience-item {
-      padding: 1.2rem;
-    }
+    .experience-item { padding: 1.2rem; }
   
-    .resume-section {
-      padding: 2rem;
-    }
+    .resume-section { padding: 2rem; }
   }
   
-  /* Prevent horizontal scroll globally */
-  body {
-    overflow-x: hidden;
-  }
-  
-  /* Smooth reveal animations */
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-  
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  /* ─────────── GLOBAL SAFETY NETS ─────────── */
+  body              { overflow-x: hidden; }           /* hard stop for side‑scroll */
+  .reveal           { opacity: 0; transform: translateY(50px);
+                      transition: opacity .8s cubic-bezier(.25,.46,.45,.94),
+                                  transform .8s cubic-bezier(.25,.46,.45,.94); }
+  .reveal.active    { opacity: 1; transform: translateY(0); }
   
