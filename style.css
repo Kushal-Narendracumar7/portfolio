@@ -37,8 +37,12 @@
         line-height: 1.6;
         overflow-x: hidden;
         font-size: 16px;
+        overflow-x: hidden;
     }
-
+    .container, .hero {
+        padding: 0 1rem; /* On smaller screens */
+      }
+      
     /* Custom Cursor */
     .cursor {
         position: fixed;
@@ -539,7 +543,7 @@
     }
 
     .project-card {
-        min-width: 350px;
+        min-width: 280px;
         background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--border);
         border-radius: 15px;
@@ -936,142 +940,162 @@
         opacity: 1;
         transform: translateY(0);
     }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-        .projects-section {
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .projects-image-container {
-            position: relative;
-            top: 0;
-            order: -1;
-        }
-
-        .experience-container {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .hero {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 2rem;
-        }
-
-        .hero-image {
-            order: -1;
-        }
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .projects-section {
+      flex-direction: column;
+      gap: 3rem;
     }
-
-    @media (max-width: 768px) {
-        .mobile-menu {
-            display: flex;
-        }
-
-        .nav-links {
-            position: fixed;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(30px);
-            flex-direction: column;
-            padding: 2rem;
-            gap: 1.5rem;
-            border-top: 1px solid var(--border);
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .nav-links li {
-            animation: none;
-            opacity: 1;
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-
-        .container {
-            padding: 0 1rem;
-        }
-
-        .hero {
-            padding: 0 1rem;
-            min-height: 80vh;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-        }
-
-        .carousel-nav {
-            display: none;
-        }
-
-        .project-card {
-            min-width: 300px;
-        }
-
-        .skills-grid,
-        .certifications-grid {
-            grid-template-columns: 1fr;
-        }
+  
+    .projects-image-container {
+      position: relative;
+      top: 0;
+      order: -1;
     }
-
-    @media (max-width: 480px) {
-        .nav {
-            padding: 1rem;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-        }
-
-        .project-card {
-            min-width: 280px;
-            padding: 1.5rem;
-        }
-
-        .skill-card,
-        .cert-card,
-        .experience-item {
-            padding: 1.5rem;
-        }
-
-        .resume-section {
-            padding: 2rem;
-        }
+  
+    .experience-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
-
-    /* Hide cursor on mobile */
-    @media (max-width: 768px) {
-        .cursor, .cursor-follower {
-            display: none;
-        }
+  
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 2rem;
     }
-
-    /* Smooth reveal animations */
-    @media (prefers-reduced-motion: no-preference) {
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  
+    .hero-image {
+      order: -1;
     }
+  
+    .projects-carousel {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+  
+    .project-card {
+      min-width: 300px;
+      scroll-snap-align: start;
+    }
+  
+    .carousel-nav {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+        padding-top: 100px; /* Slightly more to ensure spacing */
+      }
+    .mobile-menu {
+      display: flex;
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(30px);
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      border-top: 1px solid var(--border);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+  
+    .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .nav-links li {
+      animation: none;
+      opacity: 1;
+    }
+  
+    .section {
+      padding: 4rem 0;
+    }
+  
+    .container {
+      padding: 0 1rem;
+    }
+  
+    .hero {
+      padding: 0 1rem;
+      min-height: 80vh;
+    }
+  
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+  
+    .projects-carousel {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  
+    .project-card {
+      min-width: 280px;
+    }
+  
+    .skills-grid,
+    .certifications-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .cursor, .cursor-follower {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nav {
+      padding: 1rem;
+    }
+  
+    .hero-title {
+      font-size: 2.2rem;
+    }
+  
+    .project-card {
+      min-width: 260px;
+      padding: 1.2rem;
+    }
+  
+    .skill-card,
+    .cert-card,
+    .experience-item {
+      padding: 1.2rem;
+    }
+  
+    .resume-section {
+      padding: 2rem;
+    }
+  }
+  
+  /* Prevent horizontal scroll globally */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Smooth reveal animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
