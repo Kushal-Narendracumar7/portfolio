@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="../images/hello.png">
+  <title>Kushal Narendracumar - Rising Data Analyst</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+  <div class="custom-cursor"></div>
+  <div class="cursor-trail"></div>
+  
+  <div class="parallax-container">
+      <div class="parallax-bg"></div>
+      <div class="parallax-elements">
+          <div class="parallax-element" data-speed="0.5"></div>
+          <div class="parallax-element" data-speed="0.3"></div>
+          <div class="parallax-element" data-speed="0.7"></div>
+      </div>
+  </div>
+  <div class="scroll-indicator" id="scrollIndicator"></div>
+
+  <header>
+    <nav>
+      <div class="logo">KUSHAL NARENDRACUMAR</div>
+      <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="typewriter-text">Aspiring Data Scientist</h1>
+<p>Specializing in uncovering insights from data using Python, SQL & PowerBI. Passionate about real-world impact through analytics.</p>
+
+        <a href="#projects" class="cta-button">Explore My Work</a>
+      </div>
+      <div class="hero-image-container">
+        <img src="../images/hello.png" alt="Kushal Narendracumar" class="hero-image">
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Skills & Expertise</h2>
+        <div class="skills-grid">
+          <div class="skill-category fade-in">
+            <h3>Frontend Development</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-category fade-in">
+            <h3>Programming & Databases</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">Java</span>
+            </div>
+          </div>
+
+          <div class="skill-category fade-in">
+            <h3>Data Analysis & Visualization</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">PowerBI</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Seaborn</span>
+              <span class="skill-tag">Excel</span>
+            </div>
+          </div>
+
+          <div class="skill-category fade-in">
+            <h3>Tools & Technologies</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <div class="projects-carousel-container">
+          <button class="carousel-nav prev" onclick="moveCarousel(-1)">‹</button>
+          <button class="carousel-nav next" onclick="moveCarousel(1)">›</button>
+          <div class="carousel-wrapper">
+            <div class="projects-carousel">
+    
+              <div class="project-card fade-in">
+                <div class="project-content">
+                  <h3>Global Terrorism Analysis</h3>
+                  <p>Performed in-depth analysis on global terrorism trends using Python, SQL, and PowerBI to identify high-risk regions and evolving threats.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">PowerBI</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Kushal-Narendracumar7/GTD_Analysis" target="_blank" class="project-link">GitHub</a>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="project-card fade-in">
+                <div class="project-content">
+                  <h3>Amazon Sales Analysis</h3>
+                  <p>Analyzed e-commerce sales patterns and customer behavior using SQL, Python, and PowerBI, helping to derive KPIs and actionable insights.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">PowerBI</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Kushal-Narendracumar7/Amazon_Sales_Report" target="_blank" class="project-link">GitHub</a>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="project-card fade-in">
+                <div class="project-content">
+                  <h3>Cinescope: Your Movie Companion</h3>
+                  <p>A Django-based platform that allows users to review, rate, and manage their watchlists. Built with a custom admin dashboard and user system.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Kushal-Narendracumar7/Cinescope-Your-Movie-companion" target="_blank" class="project-link">GitHub</a>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+            <div class="carousel-indicators">
+              <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+              <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+              <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="projects-section-image">
+          <img src="../images/laptop.png" alt="Projects Section Image">
+        </div>
+      </div>
+    </section>
+    
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Experience</h2>
+        <div class="experience-container">
+          <img src="../images/coffee.png" alt="Experience" class="experience-image fade-in">
+          <div class="experience-timeline">
+            <div class="experience-item fade-in">
+              <div class="experience-content">
+                <div class="experience-date">Dec 2024 - Jun 2025</div>
+                <div class="experience-title">Data Analyst Intern</div>
+                <div class="experience-company">BitInfotech</div>
+                <p>Analyzed real-world datasets, created BI dashboards, and generated actionable insights for performance tracking using Python and PowerBI.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Certifications</h2>
+        <div class="certifications-grid">
+          <div class="cert-card fade-in">
+            <div class="cert-content">
+              <h3>Deloitte Data Analytics Simulation</h3>
+              <p><strong>Issuing Organization:</strong> Forage</p>
+              <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_bqe62phvE3KRjbTSe_1750167712953_completion_certificate.pdf" target="_blank" class="project-link">View Certificate</a>
+            </div>
+          </div>
+          <div class="cert-card fade-in">
+            <div class="cert-content">
+              <h3>Tata Data Visualization Simulation</h3>
+              <p><strong>Issuing Organization:</strong> Forage</p>
+              <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750529095893_completion_certificate.pdf" target="_blank" class="project-link">View Certificate</a>
+            </div>
+          </div>
+          <div class="cert-card fade-in">
+            <div class="cert-content">
+              <h3>Tata GenAI Data Analytics Simulation</h3>
+              <p><strong>Issuing Organization:</strong> Forage</p>
+              <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750258127521_completion_certificate.pdf" target="_blank" class="project-link">View Certificate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="section">
+      <div class="container">
+        <div class="resume-section fade-in">
+          <h2 class="section-title">Resume</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Download my complete resume for detailed experience and qualifications.
+          </p>
+          <a href="../resume/Kushal's Resume.pdf" class="resume-button">Download Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/kushal-narendracumar-08633a24a/" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:kushalbamania7@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/Kushal-Narendracumar7" class="social-link" title="GitHub"><i class="fab fa-github"></i></a><i class="fas fa-link"></i></a>
+      </div>
+      <p class="footer-text">© 2025 Kushal Narendracumar. Handcrafted with passion and creativity.</p>
+    </div>
+  </footer>
+
+  <script src = "script.js">
+  </script>
+</body>
+</html>
