@@ -520,7 +520,12 @@
     }
 
     [data-theme="dark"] .theme-toggle::before {
-      content: '🌙';
+        content: '🌙';
+  font-size: 16px; /* or 1rem, or smaller as needed */
+  position: absolute;
+  top: 50%;
+  left: 38px;
+  transition: all 0.4s ease;
       left: 32px;
     }
 
