@@ -521,7 +521,7 @@
 
     [data-theme="dark"] .theme-toggle::before {
       content: '🌙';
-      left: 38px;
+      left: 32px;
     }
 
     .mobile-menu {
