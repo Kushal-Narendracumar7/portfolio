@@ -38,27 +38,17 @@ if (!backdrop) {
     document.body.appendChild(backdrop);
 }
 
-// Function to toggle body scroll and prevent background scrolling
+// Function to toggle body scroll - FIXED VERSION
 function toggleBodyScroll(disable) {
     if (disable) {
-        // Store current scroll position
-        const scrollY = window.scrollY;
-        body.style.position = 'fixed';
-        body.style.top = `-${scrollY}px`;
-        body.style.width = '100%';
-        body.style.overflow = 'hidden';
-        body.classList.add('menu-open');
+        // Only prevent scroll when menu is open, don't fix position
+        document.body.style.overflow = 'hidden';
     } else {
-        // Restore scroll position
-        const scrollY = body.style.top;
-        body.style.position = '';
-        body.style.top = '';
-        body.style.width = '';
-        body.style.overflow = '';
-        body.classList.remove('menu-open');
-        if (scrollY) {
-            window.scrollTo(0, parseInt(scrollY || '0') * -1);
-        }
+        // Restore normal scrolling
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
     }
 }
 
@@ -145,9 +135,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 // FIXED: Smooth scrolling for navigation links - prevent unwanted auto-scrolling
-let isUserScroll = true;
-let scrollTimeout;
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -166,9 +153,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         const target = document.querySelector(href);
         if (target) {
-            // Set flag to indicate this is programmatic scroll
-            isUserScroll = false;
-            
             // Add offset for fixed header
             const headerHeight = document.querySelector('header').offsetHeight;
             const targetPosition = target.offsetTop - headerHeight - 20;
@@ -177,11 +161,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
-            
-            // Reset flag after scroll completes
-            setTimeout(() => {
-                isUserScroll = true;
-            }, 1000);
         }
     });
 });
