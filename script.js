@@ -294,17 +294,20 @@ revealElements.forEach(el => {
 });
 
 // Initialize on DOM content loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Ensure page starts at top
-    setTimeout(() => {
-        if (window.scrollY > 0) {
-            window.scrollTo(0, 0);
-        }
-        isUserScroll = true;
-    }, 100);
-    
-    // Initialize scroll progress
-    updateScrollProgress();
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize all existing functionality
+  initMobileMenu();
+  initSmoothScrolling();
+  initCarousel();
+  initScrollProgress();
+  initRevealAnimations();
+  
+  // Initialize parallax effects
+  initParallax();
+  initHeroParallax();
+  initFloatingParallax();
+  initSkillsParallax();
+  initProjectsParallax();
 });
 
 // Handle page load
@@ -326,3 +329,124 @@ window.addEventListener('resize', () => {
         closeMobileMenu();
     }
 });
+
+// Parallax Effects
+function initParallax() {
+  const parallaxElements = document.querySelectorAll('.parallax-bg, .hero::before, .skills-grid::before, .projects-section::before, .experience-container::before');
+  const parallaxSections = document.querySelectorAll('.hero, .skills-grid, .projects-section, .experience-container');
+  
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    parallaxSections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const speed = 0.3 + (index * 0.1);
+      
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const yPos = -(scrolled - rect.top) * speed;
+        section.style.transform = `translateY(${yPos}px)`;
+      }
+    });
+    
+    // Update background parallax
+    document.documentElement.style.setProperty('--parallax-y', `${rate}px`);
+  }
+  
+  window.addEventListener('scroll', updateParallax);
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+}
+
+// Smooth parallax for hero section
+function initHeroParallax() {
+  const hero = document.querySelector('.hero');
+  const heroContent = document.querySelector('.hero-content');
+  const heroImage = document.querySelector('.hero-image');
+  
+  function updateHeroParallax() {
+    const scrolled = window.pageYOffset;
+    const heroHeight = hero.offsetHeight;
+    
+    if (scrolled < heroHeight) {
+      const progress = scrolled / heroHeight;
+      const contentY = progress * 50;
+      const imageY = progress * -30;
+      const scale = 1 + (progress * 0.1);
+      
+      heroContent.style.transform = `translateY(${contentY}px)`;
+      heroImage.style.transform = `translateY(${imageY}px) scale(${scale})`;
+    }
+  }
+  
+  window.addEventListener('scroll', updateHeroParallax);
+  updateHeroParallax();
+}
+
+// Floating elements parallax
+function initFloatingParallax() {
+  const floatingElements = document.querySelectorAll('.floating-element');
+  
+  function updateFloatingParallax() {
+    const scrolled = window.pageYOffset;
+    
+    floatingElements.forEach((element, index) => {
+      const speed = 0.5 + (index * 0.2);
+      const yPos = -(scrolled * speed);
+      const xPos = Math.sin(scrolled * 0.001 + index) * 20;
+      
+      element.style.transform = `translate(${xPos}px, ${yPos}px)`;
+    });
+  }
+  
+  window.addEventListener('scroll', updateFloatingParallax);
+  updateFloatingParallax();
+}
+
+// Skills cards parallax
+function initSkillsParallax() {
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  function updateSkillsParallax() {
+    const scrolled = window.pageYOffset;
+    
+    skillCards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const speed = 0.2 + (index * 0.05);
+      
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const yPos = -(scrolled - rect.top) * speed;
+        const rotate = (scrolled * 0.01 + index * 10) % 360;
+        
+        card.style.transform = `translateY(${yPos}px) rotateY(${rotate}deg)`;
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateSkillsParallax);
+  updateSkillsParallax();
+}
+
+// Project cards parallax
+function initProjectsParallax() {
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  function updateProjectsParallax() {
+    const scrolled = window.pageYOffset;
+    
+    projectCards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const speed = 0.15 + (index * 0.03);
+      
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const yPos = -(scrolled - rect.top) * speed;
+        const scale = 1 + (Math.sin(scrolled * 0.001 + index) * 0.02);
+        
+        card.style.transform = `translateY(${yPos}px) scale(${scale})`;
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateProjectsParallax);
+  updateProjectsParallax();
+}
