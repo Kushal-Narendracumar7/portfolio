@@ -3,241 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="icon" type="image/png" href="images/hello.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <title>Kushal Narendracumar - Rising Data Scientist</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
-
-  <div class="floating-elements">
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
+  <div class="loading" id="loading">
+    <div class="royal-loader"></div>
+    <div class="loading-crown">♔</div>
   </div>
 
-  <div class="scroll-progress"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="parallax-bg" id="parallaxBg"></div>
+  
+  <!-- Floating Particles -->
+  <div class="floating-particles" id="floatingParticles"></div>
 
-  <div class="mobile-menu-backdrop"></div>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <div class="cursor-text" id="cursorText"></div>
 
   <header>
-    <nav>
-      <div class="logo">KN</div>
-      <div class="mobile-menu" id="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="header-ornament"></div>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo magnetic">KN</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="magnetic">Home</a></li>
+          <li><a href="#skills" class="magnetic">Skills</a></li>
+          <li><a href="#projects" class="magnetic">Projects</a></li>
+          <li><a href="#experience" class="magnetic">Experience</a></li>
+          <li><a href="#resume" class="magnetic">Resume</a></li>
+          <li><a href="#contact" class="magnetic">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <div class="theme-toggle magnetic" id="themeToggle" title="Toggle Theme"></div>
+          <div class="mobile-menu" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section id="home" class="hero">
-      <div class="parallax-bg"></div>
-      <div class="parallax-element"></div>
-      <div class="parallax-element"></div>
-      <div class="parallax-element"></div>
-      <div class="parallax-element"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Aspiring Data Scientist</h1>
-        <p class="hero-subtitle">Specializing in uncovering insights from data using Python, SQL & PowerBI. Passionate about real-world impact through analytics.</p>
-        <a href="#projects" class="cta-button">
-          Explore My Work
-          <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-      <div class="hero-image">
-        <img src="images/hello.png" alt="Kushal Narendracumar">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text fade-in">
+            <h1 class="glow-text">Aspiring Data Scientist</h1>
+            <p class="subtitle royal-text">Specializing in uncovering insights from data using Python, SQL & PowerBI. Passionate about real-world impact through analytics and machine learning.</p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn-primary magnetic">
+                Explore My Work
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="#contact" class="btn-outline magnetic">
+                Get In Touch
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+          <div class="hero-image scale-in">
+            <img src="images/hello.png" alt="Kushal Narendracumar" class="magnetic">
+          </div>
+        </div>
       </div>
     </section>
+
+    <div class="royal-divider"></div>
 
     <section id="skills" class="section">
       <div class="container">
-        <h2 class="section-title fade-in">Skills & Expertise</h2>
+        <h2 class="section-title fade-in glow-text">Skills & Expertise</h2>
         <div class="skills-grid">
-          <div class="skill-card fade-in">
+          <div class="skill-card glass-card fade-in ornamental-border magnetic">
             <h3>Frontend Development</h3>
             <div class="skill-tags">
-              <span class="skill-tag">HTML5</span>
-              <span class="skill-tag">CSS3</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
-              <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-              <span class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+              <span class="skill-tag magnetic"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="skill-tag magnetic"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="skill-tag magnetic"><i class="fab fa-js-square"></i> JavaScript</span>
             </div>
           </div>
 
-          <div class="skill-card fade-in">
+          <div class="skill-card glass-card fade-in ornamental-border magnetic">
             <h3>Programming & Databases</h3>
             <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-              <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
-              <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+              <span class="skill-tag magnetic"><i class="fab fa-python"></i> Python</span>
+              <span class="skill-tag magnetic"><i class="fas fa-database"></i> MySQL</span>
+              <span class="skill-tag magnetic"><i class="fab fa-java"></i> Java</span>
             </div>
           </div>
 
-          <div class="skill-card fade-in">
+          <div class="skill-card glass-card slide-in-left ornamental-border magnetic">
             <h3>Data Analysis & Visualization</h3>
             <div class="skill-tags">
-              <span class="skill-tag">PowerBI</span>
-              <span class="skill-tag">Pandas</span>
-              <span class="skill-tag">Matplotlib</span>
-              <span class="skill-tag">NumPy</span>
-              <span class="skill-tag">Seaborn</span>
-              <span class="skill-tag">Excel</span>
-              <span class="skill-tag"><i class="fas fa-chart-bar"></i> PowerBI</span>
-              <span class="skill-tag"><i class="fas fa-table"></i> Pandas</span>
-              <span class="skill-tag"><i class="fas fa-chart-line"></i> Matplotlib</span>
-              <span class="skill-tag"><i class="fas fa-calculator"></i> NumPy</span>
-              <span class="skill-tag"><i class="fas fa-chart-pie"></i> Seaborn</span>
-              <span class="skill-tag"><i class="fas fa-file-excel"></i> Excel</span>
+              <span class="skill-tag magnetic"><i class="fas fa-chart-bar"></i> PowerBI</span>
+              <span class="skill-tag magnetic"><i class="fas fa-table"></i> Pandas</span>
+              <span class="skill-tag magnetic"><i class="fas fa-chart-line"></i> Matplotlib</span>
+              <span class="skill-tag magnetic"><i class="fas fa-calculator"></i> NumPy</span>
+              <span class="skill-tag magnetic"><i class="fas fa-chart-pie"></i> Seaborn</span>
+              <span class="skill-tag magnetic"><i class="fas fa-file-excel"></i> Excel</span>
             </div>
           </div>
 
-          <div class="skill-card fade-in">
+          <div class="skill-card glass-card slide-in-right ornamental-border magnetic">
             <h3>Tools & Technologies</h3>
             <div class="skill-tags">
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">GitHub</span>
-              <span class="skill-tag">VS Code</span>
-              <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
-              <span class="skill-tag"><i class="fab fa-github"></i> GitHub</span>
-              <span class="skill-tag"><i class="fas fa-code"></i> VS Code</span>
+              <span class="skill-tag magnetic"><i class="fab fa-git-alt"></i> Git</span>
+              <span class="skill-tag magnetic"><i class="fab fa-github"></i> GitHub</span>
+              <span class="skill-tag magnetic"><i class="fas fa-code"></i> VS Code</span>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="royal-divider"></div>
 
     <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title fade-in">Featured Projects</h2>
-        <div class="projects-section">
-          <div class="projects-carousel-container">
-            <div class="carousel-wrapper">
-              <div class="projects-carousel">
-
-                <div class="project-card fade-in">
-                  <h3>Global Terrorism Analysis</h3>
-                  <p>Performed in-depth analysis on global terrorism trends using Python, SQL, and PowerBI to identify high-risk regions and evolving threats.</p>
-                  <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">PowerBI</span>
-                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                    <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
-                    <span class="tech-tag"><i class="fas fa-chart-bar"></i> PowerBI</span>
-                  </div>
-                  <a href="https://github.com/Kushal-Narendracumar7/GTD_Analysis" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                    View Project
-                  </a>
-                </div>
-
-                <div class="project-card fade-in">
-                  <h3>Amazon Sales Analysis</h3>
-                  <p>Analyzed e-commerce sales patterns and customer behavior using SQL, Python, and PowerBI, helping to derive KPIs and actionable insights.</p>
-                  <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">PowerBI</span>
-                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                    <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
-                    <span class="tech-tag"><i class="fas fa-chart-bar"></i> PowerBI</span>
-                  </div>
-                  <a href="https://github.com/Kushal-Narendracumar7/Amazon_Sales_Report" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                    View Project
-                  </a>
-                </div>
-
-                <div class="project-card fade-in">
-                  <h3>Cinescope: Your Movie Companion</h3>
-                  <p>A Django-based platform that allows users to review, rate, and manage their watchlists. Built with a custom admin dashboard and user system.</p>
-                  <div class="project-tech">
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SQLite</span>
-                    <span class="tech-tag"><i class="fab fa-python"></i> Django</span>
-                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                    <span class="tech-tag"><i class="fas fa-database"></i> SQLite</span>
-                  </div>
-                  <a href="https://github.com/Kushal-Narendracumar7/Cinescope-Your-Movie-companion" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                    View Project
-                  </a>
-                </div>
-
-              </div>
+        <h2 class="section-title fade-in glow-text">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card glass-card fade-in magnetic">
+            <h3>Global Terrorism Analysis</h3>
+            <p>Performed in-depth analysis on global terrorism trends using Python, SQL, and PowerBI to identify high-risk regions and evolving threats with comprehensive data visualization.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PowerBI</span>
+              <span class="tech-tag">Pandas</span>
             </div>
+            <a href="https://github.com/Kushal-Narendracumar7/GTD_Analysis" target="_blank" class="btn-outline magnetic">
+              <i class="fab fa-github"></i>
+              View Project
+            </a>
           </div>
 
-          <div class="projects-image-container">
-            <img src="images/laptop in hand.png" alt="Projects Showcase">
+          <div class="project-card glass-card fade-in magnetic">
+            <h3>Amazon Sales Analysis</h3>
+            <p>Analyzed e-commerce sales patterns and customer behavior using SQL, Python, and PowerBI, helping to derive KPIs and actionable insights for business growth strategies.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PowerBI</span>
+              <span class="tech-tag">Analytics</span>
+            </div>
+            <a href="https://github.com/Kushal-Narendracumar7/Amazon_Sales_Report" target="_blank" class="btn-outline magnetic">
+              <i class="fab fa-github"></i>
+              View Project
+            </a>
+          </div>
+
+          <div class="project-card glass-card fade-in magnetic">
+            <h3>Cinescope: Your Movie Companion</h3>
+            <p>A Django-based platform that allows users to review, rate, and manage their watchlists. Built with a custom admin dashboard and comprehensive user management system.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">Web Dev</span>
+            </div>
+            <a href="https://github.com/Kushal-Narendracumar7/Cinescope-Your-Movie-companion" target="_blank" class="btn-outline magnetic">
+              <i class="fab fa-github"></i>
+              View Project
+            </a>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="royal-divider"></div>
 
     <section id="experience" class="section">
       <div class="container">
-        <h2 class="section-title fade-in">Experience</h2>
+        <h2 class="section-title fade-in glow-text">Professional Experience</h2>
         <div class="experience-container">
-          <div class="experience-image fade-in">
+          <div class="experience-image fade-in magnetic">
             <img src="images/coffee.png" alt="Professional Experience">
           </div>
           <div class="experience-timeline">
-            <div class="experience-item fade-in">
+            <div class="experience-item glass-card slide-in-right magnetic">
               <div class="experience-date">Dec 2024 - Jun 2025</div>
               <div class="experience-title">Data Analyst Intern</div>
               <div class="experience-company">BitInfotech</div>
-              <p>Analyzed real-world datasets, created BI dashboards, and generated actionable insights for performance tracking using Python and PowerBI.</p>
+              <p class="royal-text">Analyzed real-world datasets, created comprehensive BI dashboards, and generated actionable insights for performance tracking using Python, SQL, and PowerBI. Collaborated with cross-functional teams to deliver data-driven solutions.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <div class="royal-divider"></div>
+
     <section id="certifications" class="section">
       <div class="container">
-        <h2 class="section-title fade-in">Certifications</h2>
+        <h2 class="section-title fade-in glow-text">Certifications & Achievements</h2>
         <div class="certifications-grid">
-          <div class="cert-card fade-in">
+          <div class="cert-card glass-card fade-in magnetic">
             <h3>Deloitte Data Analytics Simulation</h3>
-            <p><strong>Issuing Organization:</strong> Forage</p>
-            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_bqe62phvE3KRjbTSe_1750167712953_completion_certificate.pdf" target="_blank" class="project-link">
+            <p><strong>Issuing Organization:</strong> <span class="royal-text">Forage</span></p>
+            <p>Completed comprehensive data analytics simulation covering advanced statistical analysis, data visualization, and business intelligence concepts.</p>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_bqe62phvE3KRjbTSe_1750167712953_completion_certificate.pdf" target="_blank" class="btn-outline magnetic">
               <i class="fas fa-certificate"></i>
               View Certificate
             </a>
           </div>
 
-          <div class="cert-card fade-in">
+          <div class="cert-card glass-card fade-in magnetic">
             <h3>Tata Data Visualization Simulation</h3>
-            <p><strong>Issuing Organization:</strong> Forage</p>
-            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750529095893_completion_certificate.pdf" target="_blank" class="project-link">
+            <p><strong>Issuing Organization:</strong> <span class="royal-text">Forage</span></p>
+            <p>Mastered advanced data visualization techniques, dashboard creation, and storytelling with data using industry-standard tools and methodologies.</p>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750529095893_completion_certificate.pdf" target="_blank" class="btn-outline magnetic">
               <i class="fas fa-certificate"></i>
               View Certificate
             </a>
           </div>
 
-          <div class="cert-card fade-in">
+          <div class="cert-card glass-card fade-in magnetic">
             <h3>Tata GenAI Data Analytics Simulation</h3>
-            <p><strong>Issuing Organization:</strong> Forage</p>
-            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750258127521_completion_certificate.pdf" target="_blank" class="project-link">
+            <p><strong>Issuing Organization:</strong> <span class="royal-text">Forage</span></p>
+            <p>Explored cutting-edge AI and machine learning applications in data analytics, including generative AI models and automated analysis techniques.</p>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750258127521_completion_certificate.pdf" target="_blank" class="btn-outline magnetic">
               <i class="fas fa-certificate"></i>
               View Certificate
             </a>
@@ -246,14 +238,15 @@
       </div>
     </section>
 
+    <div class="royal-divider"></div>
+
     <section id="resume" class="section">
       <div class="container">
-        <div class="resume-section fade-in">
-          <h2 class="section-title">Resume</h2>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-            Download my complete resume for detailed experience and qualifications.
-          </p>
-          <a href="resume/Kushal's Resume.pdf" class="resume-button">
+        <div class="resume-section glass-card fade-in magnetic">
+          <h2 class="section-title glow-text">Resume</h2>
+          <p class="royal-text" style="margin-bottom: 3rem; font-size: 1.3rem;">
+            Download my complete resume for detailed experience, qualifications, and achievements.
+          <a href="resume/Kushal's Resume.pdf" class="btn-primary magnetic">
             <i class="fas fa-download"></i>
             Download Resume (PDF)
           </a>
@@ -264,20 +257,20 @@
 
   <footer id="contact">
     <div class="container">
+      <h3 class="glow-text" style="margin-bottom: 2rem; font-size: 2rem;">Connect With Me</h3>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/kushal-narendracumar-08633a24a/" class="social-link" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/kushal-narendracumar-08633a24a/" class="social-link magnetic" title="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
-        <a href="mailto:kushalbamania7@gmail.com" class="social-link" title="Email">
+        <a href="mailto:kushalbamania7@gmail.com" class="social-link magnetic" title="Email">
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://github.com/Kushal-Narendracumar7" class="social-link" title="GitHub">
+        <a href="https://github.com/Kushal-Narendracumar7" class="social-link magnetic" title="GitHub">
           <i class="fab fa-github"></i>
         </a>
       </div>
-      <p class="footer-text">© 2025 Kushal Narendracumar. Handcrafted with passion and creativity.</p>
+      <p class="footer-text royal-text">© 2025 Kushal Narendracumar. Crafted with royal elegance and modern sophistication.</p>
     </div>
   </footer>
-
   <script src="script.js"></script>
 </body>
