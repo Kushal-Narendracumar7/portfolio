@@ -330,18 +330,17 @@ window.addEventListener('resize', () => {
     }
 });
 
-// Parallax Effects
+// Subtle Parallax Effects
 function initParallax() {
-  const parallaxElements = document.querySelectorAll('.parallax-bg, .hero::before, .skills-grid::before, .projects-section::before, .experience-container::before');
+  const parallaxElements = document.querySelectorAll('.parallax-bg, .parallax-element');
   const parallaxSections = document.querySelectorAll('.hero, .skills-grid, .projects-section, .experience-container');
   
   function updateParallax() {
     const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
     
     parallaxSections.forEach((section, index) => {
       const rect = section.getBoundingClientRect();
-      const speed = 0.3 + (index * 0.1);
+      const speed = 0.1 + (index * 0.02); // Much slower speeds
       
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         const yPos = -(scrolled - rect.top) * speed;
@@ -349,8 +348,8 @@ function initParallax() {
       }
     });
     
-    // Update background parallax
-    document.documentElement.style.setProperty('--parallax-y', `${rate}px`);
+    // Update background parallax with very subtle movement
+    document.documentElement.style.setProperty('--parallax-y', `${scrolled * -0.1}px`);
   }
   
   window.addEventListener('scroll', updateParallax);
@@ -358,7 +357,7 @@ function initParallax() {
   updateParallax();
 }
 
-// Smooth parallax for hero section
+// Very subtle hero parallax
 function initHeroParallax() {
   const hero = document.querySelector('.hero');
   const heroContent = document.querySelector('.hero-content');
@@ -370,9 +369,9 @@ function initHeroParallax() {
     
     if (scrolled < heroHeight) {
       const progress = scrolled / heroHeight;
-      const contentY = progress * 50;
-      const imageY = progress * -30;
-      const scale = 1 + (progress * 0.1);
+      const contentY = progress * 15; // Much smaller movement
+      const imageY = progress * -10; // Much smaller movement
+      const scale = 1 + (progress * 0.02); // Much smaller scale
       
       heroContent.style.transform = `translateY(${contentY}px)`;
       heroImage.style.transform = `translateY(${imageY}px) scale(${scale})`;
@@ -383,7 +382,7 @@ function initHeroParallax() {
   updateHeroParallax();
 }
 
-// Floating elements parallax
+// Gentle floating elements
 function initFloatingParallax() {
   const floatingElements = document.querySelectorAll('.floating-element');
   
@@ -391,9 +390,9 @@ function initFloatingParallax() {
     const scrolled = window.pageYOffset;
     
     floatingElements.forEach((element, index) => {
-      const speed = 0.5 + (index * 0.2);
+      const speed = 0.2 + (index * 0.05); // Much slower speeds
       const yPos = -(scrolled * speed);
-      const xPos = Math.sin(scrolled * 0.001 + index) * 20;
+      const xPos = Math.sin(scrolled * 0.0005 + index) * 10; // Much smaller movement
       
       element.style.transform = `translate(${xPos}px, ${yPos}px)`;
     });
@@ -403,7 +402,7 @@ function initFloatingParallax() {
   updateFloatingParallax();
 }
 
-// Skills cards parallax
+// Very subtle skills cards parallax
 function initSkillsParallax() {
   const skillCards = document.querySelectorAll('.skill-card');
   
@@ -412,11 +411,11 @@ function initSkillsParallax() {
     
     skillCards.forEach((card, index) => {
       const rect = card.getBoundingClientRect();
-      const speed = 0.2 + (index * 0.05);
+      const speed = 0.05 + (index * 0.01); // Very slow speeds
       
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         const yPos = -(scrolled - rect.top) * speed;
-        const rotate = (scrolled * 0.01 + index * 10) % 360;
+        const rotate = (scrolled * 0.002 + index * 2) % 360; // Much smaller rotation
         
         card.style.transform = `translateY(${yPos}px) rotateY(${rotate}deg)`;
       }
@@ -427,7 +426,7 @@ function initSkillsParallax() {
   updateSkillsParallax();
 }
 
-// Project cards parallax
+// Very subtle project cards parallax
 function initProjectsParallax() {
   const projectCards = document.querySelectorAll('.project-card');
   
@@ -436,11 +435,11 @@ function initProjectsParallax() {
     
     projectCards.forEach((card, index) => {
       const rect = card.getBoundingClientRect();
-      const speed = 0.15 + (index * 0.03);
+      const speed = 0.03 + (index * 0.005); // Very slow speeds
       
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         const yPos = -(scrolled - rect.top) * speed;
-        const scale = 1 + (Math.sin(scrolled * 0.001 + index) * 0.02);
+        const scale = 1 + (Math.sin(scrolled * 0.0003 + index) * 0.005); // Much smaller scale
         
         card.style.transform = `translateY(${yPos}px) scale(${scale})`;
       }

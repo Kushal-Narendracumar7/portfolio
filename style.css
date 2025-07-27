@@ -439,80 +439,62 @@ nav {
 
 /* Experience Image Glow */
 .experience-image {
-    position: relative;
+  position: relative;
+  z-index: 2;
 }
 
 .experience-image::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 110%;
-    height: 110%;
-    background: radial-gradient(circle, rgba(74, 144, 226, 0.2) 0%, rgba(247, 147, 30, 0.1) 50%, transparent 70%);
-    border-radius: 20px;
-    z-index: 1;
-    opacity: 0.5;
-    filter: blur(25px);
-    animation: pulseGlow 6s ease-in-out infinite alternate;
+  display: none;
 }
 
 .experience-image img {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  border: none;
+  outline: none;
 }
 
 .experience-image img:hover {
-    transform: scale(1.05) rotate(-2deg);
+  transform: translateY(-5px);
 }
 
 .experience-image:hover::before {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.15);
+  display: none;
 }
 
 /* Projects Image Glow */
 .projects-image-container {
-    position: relative;
+  position: relative;
+  z-index: 2;
 }
 
 .projects-image-container::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 110%;
-    height: 110%;
-    background: radial-gradient(circle, rgba(139, 90, 43, 0.2) 0%, rgba(247, 147, 30, 0.1) 50%, transparent 70%);
-    border-radius: 15px;
-    z-index: 1;
-    opacity: 0.4;
-    filter: blur(20px);
-    animation: pulseGlow 5s ease-in-out infinite alternate;
+  display: none;
 }
 
 .projects-image-container img {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  border: none;
+  outline: none;
+}
+
+.projects-image-container img:hover {
+  transform: translateY(-5px);
 }
 
 .projects-image-container:hover img {
-    transform: scale(1.05);
+  transform: translateY(-5px);
 }
 
 .projects-image-container:hover::before {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.1);
+  display: none;
 }
 
 /* Animations */
@@ -1558,6 +1540,9 @@ body {
 img {
     max-width: 100%;
     height: auto;
+    border: none;
+    outline: none;
+    display: block;
 }
 
 /* Better text rendering */
@@ -1593,7 +1578,7 @@ body {
     }
 }
 
-/* Parallax Effects */
+/* Subtle Parallax Effects */
 .parallax-section {
   position: relative;
   overflow: hidden;
@@ -1604,11 +1589,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 120%;
-  background: linear-gradient(135deg, 
-    rgba(247, 147, 30, 0.05) 0%, 
-    rgba(74, 144, 226, 0.05) 50%, 
-    rgba(139, 90, 43, 0.05) 100%);
+  height: 110%;
+  background: radial-gradient(circle at 30% 20%, rgba(247, 147, 30, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(74, 144, 226, 0.03) 0%, transparent 50%);
   transform: translateY(0);
   will-change: transform;
   z-index: -1;
@@ -1617,44 +1600,45 @@ body {
 .parallax-element {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(247, 147, 30, 0.1) 0%, transparent 70%);
-  animation: float 20s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(247, 147, 30, 0.05) 0%, transparent 70%);
+  animation: gentleFloat 15s ease-in-out infinite;
   will-change: transform;
+  opacity: 0.6;
 }
 
 .parallax-element:nth-child(1) {
-  width: 100px;
-  height: 100px;
-  top: 10%;
-  left: 10%;
+  width: 60px;
+  height: 60px;
+  top: 15%;
+  left: 15%;
   animation-delay: 0s;
 }
 
 .parallax-element:nth-child(2) {
-  width: 150px;
-  height: 150px;
-  top: 60%;
-  right: 15%;
+  width: 80px;
+  height: 80px;
+  top: 65%;
+  right: 20%;
   animation-delay: -5s;
 }
 
 .parallax-element:nth-child(3) {
-  width: 80px;
-  height: 80px;
-  top: 30%;
-  right: 30%;
+  width: 40px;
+  height: 40px;
+  top: 35%;
+  right: 35%;
   animation-delay: -10s;
 }
 
 .parallax-element:nth-child(4) {
-  width: 120px;
-  height: 120px;
-  bottom: 20%;
-  left: 20%;
-  animation-delay: -15s;
+  width: 70px;
+  height: 70px;
+  bottom: 25%;
+  left: 25%;
+  animation-delay: -7s;
 }
 
-/* Hero Parallax */
+/* Hero Parallax - Very Subtle */
 .hero {
   position: relative;
   overflow: hidden;
@@ -1667,14 +1651,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 30% 20%, rgba(247, 147, 30, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at 25% 25%, rgba(247, 147, 30, 0.02) 0%, transparent 60%),
+              radial-gradient(circle at 75% 75%, rgba(74, 144, 226, 0.02) 0%, transparent 60%);
   transform: translateY(0);
   will-change: transform;
   z-index: -1;
 }
 
-/* Skills Parallax */
+/* Skills Parallax - Minimal */
 .skills-grid {
   position: relative;
 }
@@ -1682,26 +1666,26 @@ body {
 .skills-grid::before {
   content: '';
   position: absolute;
-  top: -50px;
-  left: -50px;
-  right: -50px;
-  bottom: -50px;
+  top: -30px;
+  left: -30px;
+  right: -30px;
+  bottom: -30px;
   background: conic-gradient(from 0deg, 
-    rgba(247, 147, 30, 0.05) 0deg, 
-    rgba(74, 144, 226, 0.05) 120deg, 
-    rgba(139, 90, 43, 0.05) 240deg, 
-    rgba(247, 147, 30, 0.05) 360deg);
+    rgba(247, 147, 30, 0.02) 0deg, 
+    rgba(74, 144, 226, 0.02) 120deg, 
+    rgba(139, 90, 43, 0.02) 240deg, 
+    rgba(247, 147, 30, 0.02) 360deg);
   border-radius: 50%;
   transform: translateY(0) rotate(0deg);
   will-change: transform;
   z-index: -1;
-  animation: rotateGradient 30s linear infinite;
+  animation: slowRotate 40s linear infinite;
 }
 
-/* Projects Parallax */
+/* Projects Parallax - Very Subtle */
 .projects-section {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .projects-section::before {
@@ -1712,23 +1696,23 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(45deg, 
-    rgba(247, 147, 30, 0.03) 25%, 
+    rgba(247, 147, 30, 0.01) 25%, 
     transparent 25%, 
     transparent 50%, 
-    rgba(74, 144, 226, 0.03) 50%, 
-    rgba(74, 144, 226, 0.03) 75%, 
+    rgba(74, 144, 226, 0.01) 50%, 
+    rgba(74, 144, 226, 0.01) 75%, 
     transparent 75%);
-  background-size: 100px 100px;
+  background-size: 200px 200px;
   transform: translateY(0);
   will-change: transform;
   z-index: -1;
-  animation: slidePattern 20s linear infinite;
+  animation: gentleSlide 30s linear infinite;
 }
 
-/* Experience Parallax */
+/* Experience Parallax - Minimal */
 .experience-container {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .experience-container::before {
@@ -1736,76 +1720,188 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(247, 147, 30, 0.05) 0%, transparent 70%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(247, 147, 30, 0.02) 0%, transparent 70%);
   transform: translate(-50%, -50%) translateY(0);
   will-change: transform;
   z-index: -1;
 }
 
-/* Animations */
-@keyframes rotateGradient {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-20px) rotate(360deg); }
+/* Gentle Animations */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.05); }
 }
 
-@keyframes slidePattern {
+@keyframes slowRotate {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(360deg); }
+}
+
+@keyframes gentleSlide {
   0% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-10px) translateX(-10px); }
+  50% { transform: translateY(-5px) translateX(-5px); }
   100% { transform: translateY(0) translateX(0); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-20px) rotate(90deg); }
-  50% { transform: translateY(-10px) rotate(180deg); }
-  75% { transform: translateY(-30px) rotate(270deg); }
-}
-
-/* Performance optimizations for parallax */
-.hero-content,
-.hero-image,
-.skill-card,
-.project-card,
-.experience-item {
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background: radial-gradient(circle at 30% 20%, rgba(247, 147, 30, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(74, 144, 226, 0.03) 0%, transparent 50%);
+  transform: translateY(0);
   will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  z-index: -1;
 }
 
-/* Smooth parallax transitions */
-.parallax-bg,
-.parallax-element,
-.hero::before,
-.skills-grid::before,
-.projects-section::before,
+.parallax-element {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 147, 30, 0.05) 0%, transparent 70%);
+  animation: gentleFloat 15s ease-in-out infinite;
+  will-change: transform;
+  opacity: 0.6;
+}
+
+.parallax-element:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  top: 15%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.parallax-element:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: 65%;
+  right: 20%;
+  animation-delay: -5s;
+}
+
+.parallax-element:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  top: 35%;
+  right: 35%;
+  animation-delay: -10s;
+}
+
+.parallax-element:nth-child(4) {
+  width: 70px;
+  height: 70px;
+  bottom: 25%;
+  left: 25%;
+  animation-delay: -7s;
+}
+
+/* Hero Parallax - Very Subtle */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 25% 25%, rgba(247, 147, 30, 0.02) 0%, transparent 60%),
+              radial-gradient(circle at 75% 75%, rgba(74, 144, 226, 0.02) 0%, transparent 60%);
+  transform: translateY(0);
+  will-change: transform;
+  z-index: -1;
+}
+
+/* Skills Parallax - Minimal */
+.skills-grid {
+  position: relative;
+}
+
+.skills-grid::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  right: -30px;
+  bottom: -30px;
+  background: conic-gradient(from 0deg, 
+    rgba(247, 147, 30, 0.02) 0deg, 
+    rgba(74, 144, 226, 0.02) 120deg, 
+    rgba(139, 90, 43, 0.02) 240deg, 
+    rgba(247, 147, 30, 0.02) 360deg);
+  border-radius: 50%;
+  transform: translateY(0) rotate(0deg);
+  will-change: transform;
+  z-index: -1;
+  animation: slowRotate 40s linear infinite;
+}
+
+/* Projects Parallax - Very Subtle */
+.projects-section {
+  position: relative;
+  overflow: visible;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(247, 147, 30, 0.01) 25%, 
+    transparent 25%, 
+    transparent 50%, 
+    rgba(74, 144, 226, 0.01) 50%, 
+    rgba(74, 144, 226, 0.01) 75%, 
+    transparent 75%);
+  background-size: 200px 200px;
+  transform: translateY(0);
+  will-change: transform;
+  z-index: -1;
+  animation: gentleSlide 30s linear infinite;
+}
+
+/* Experience Parallax - Minimal */
+.experience-container {
+  position: relative;
+  overflow: visible;
+}
+
 .experience-container::before {
-  transition: transform 0.1s ease-out;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(247, 147, 30, 0.02) 0%, transparent 70%);
+  transform: translate(-50%, -50%) translateY(0);
   will-change: transform;
-  transform: translateZ(0);
+  z-index: -1;
 }
 
-/* Enhanced floating elements */
-.floating-element {
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+/* Gentle Animations */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.05); }
 }
 
-/* Parallax depth effect */
-.hero-content {
-  transform: translateZ(50px);
+@keyframes slowRotate {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(360deg); }
 }
 
-.hero-image {
-  transform: translateZ(100px);
-}
-
-.skill-card {
-  transform: translateZ(30px);
-}
-
-.project-card {
-  transform: translateZ(40px);
+@keyframes gentleSlide {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-5px) translateX(-5px); }
+  100% { transform: translateY(0) translateX(0); }
 }
