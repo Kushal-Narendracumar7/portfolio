@@ -48,6 +48,10 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     font-size: 16px;
+    display:flex;
+    justify-content: center; 
+    align-items : center;
+    flex-direction : column;
 }
 
 .container, .hero {
@@ -1091,8 +1095,6 @@ nav {
 
 /* Footer */
 footer {
-    background: var(--secondary);
-    border-top: 1px solid var(--border);
     padding: 3rem 0 2rem;
     text-align: center;
 }
