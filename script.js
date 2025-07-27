@@ -10,7 +10,7 @@ if (cursor && cursorFollower) {
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
-        
+
         setTimeout(() => {
             cursorFollower.style.left = e.clientX + 'px';
             cursorFollower.style.top = e.clientY + 'px';
@@ -23,7 +23,7 @@ if (cursor && cursorFollower) {
             cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
             cursorFollower.style.transform = 'translate(-50%, -50%) scale(1.5)';
         });
-        
+
         element.addEventListener('mouseleave', () => {
             cursor.style.transform = 'translate(-50%, -50%) scale(1)';
             cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
@@ -85,9 +85,9 @@ if (mobileMenu) {
     mobileMenu.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const isActive = mobileMenu.classList.contains('active');
-        
+
         if (!isActive) {
             openMobileMenu();
         } else {
@@ -106,7 +106,7 @@ if (navLinks) {
     navLinks.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') {
             closeMobileMenu();
-            
+
             // Handle smooth scrolling for hash links
             const href = e.target.getAttribute('href');
             if (href && href.startsWith('#') && href !== '#') {
@@ -116,7 +116,7 @@ if (navLinks) {
                     setTimeout(() => {
                         const headerHeight = document.querySelector('header')?.offsetHeight || 80;
                         const targetPosition = target.offsetTop - headerHeight - 20;
-                        
+
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
@@ -149,24 +149,24 @@ document.addEventListener('keydown', (e) => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        
+
         // Skip empty hash or just # 
         if (!href || href === '#') {
             return;
         }
-        
+
         // Don't prevent default for CTA button
         if (this.classList.contains('cta-button')) {
             return;
         }
-        
+
         e.preventDefault();
-        
+
         const target = document.querySelector(href);
         if (target) {
             const headerHeight = document.querySelector('header')?.offsetHeight || 80;
             const targetPosition = target.offsetTop - headerHeight - 20;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -202,10 +202,10 @@ function handleHeaderScroll() {
 function handleScroll() {
     updateScrollProgress();
     handleHeaderScroll();
-    
+
     // Clear any existing timeout
     clearTimeout(scrollTimeout);
-    
+
     // Set timeout to ensure scroll has stopped
     scrollTimeout = setTimeout(() => {
         isUserScroll = true;
@@ -237,7 +237,7 @@ document.querySelectorAll('.fade-in').forEach(el => {
 function handleParallax() {
     const scrolled = window.pageYOffset;
     const parallax = document.querySelectorAll('.floating-element');
-    
+
     parallax.forEach((element, index) => {
         const speed = 0.5 + (index * 0.2);
         const yPos = -(scrolled * speed);
@@ -252,7 +252,7 @@ document.querySelectorAll('.skill-card, .project-card, .cert-card, .experience-i
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
-    
+
     card.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
     });
@@ -264,10 +264,10 @@ document.querySelectorAll('.cta-button, .project-link, .resume-button').forEach(
         const rect = button.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
+
         button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
     });
-    
+
     button.addEventListener('mouseleave', () => {
         button.style.transform = 'translate(0, 0)';
     });
@@ -294,6 +294,17 @@ revealElements.forEach(el => {
 });
 
 // Initialize on DOM content loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure page starts at top
+    setTimeout(() => {
+        if (window.scrollY > 0) {
+            window.scrollTo(0, 0);
+        }
+        isUserScroll = true;
+    }, 100);
+    
+    // Initialize scroll progress
+    updateScrollProgress();
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize all existing functionality
   initMobileMenu();
@@ -329,18 +340,20 @@ window.addEventListener('resize', () => {
         closeMobileMenu();
     }
 });
+});
 
-// Subtle Parallax Effects
+// Parallax Effects
 function initParallax() {
-  const parallaxElements = document.querySelectorAll('.parallax-bg, .parallax-element');
+  const parallaxElements = document.querySelectorAll('.parallax-bg, .hero::before, .skills-grid::before, .projects-section::before, .experience-container::before');
   const parallaxSections = document.querySelectorAll('.hero, .skills-grid, .projects-section, .experience-container');
   
   function updateParallax() {
     const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
     
     parallaxSections.forEach((section, index) => {
       const rect = section.getBoundingClientRect();
-      const speed = 0.1 + (index * 0.02); // Much slower speeds
+      const speed = 0.3 + (index * 0.1);
       
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         const yPos = -(scrolled - rect.top) * speed;
@@ -348,8 +361,8 @@ function initParallax() {
       }
     });
     
-    // Update background parallax with very subtle movement
-    document.documentElement.style.setProperty('--parallax-y', `${scrolled * -0.1}px`);
+    // Update background parallax
+    document.documentElement.style.setProperty('--parallax-y', `${rate}px`);
   }
   
   window.addEventListener('scroll', updateParallax);
@@ -357,7 +370,7 @@ function initParallax() {
   updateParallax();
 }
 
-// Very subtle hero parallax
+// Smooth parallax for hero section
 function initHeroParallax() {
   const hero = document.querySelector('.hero');
   const heroContent = document.querySelector('.hero-content');
@@ -369,9 +382,9 @@ function initHeroParallax() {
     
     if (scrolled < heroHeight) {
       const progress = scrolled / heroHeight;
-      const contentY = progress * 15; // Much smaller movement
-      const imageY = progress * -10; // Much smaller movement
-      const scale = 1 + (progress * 0.02); // Much smaller scale
+      const contentY = progress * 50;
+      const imageY = progress * -30;
+      const scale = 1 + (progress * 0.1);
       
       heroContent.style.transform = `translateY(${contentY}px)`;
       heroImage.style.transform = `translateY(${imageY}px) scale(${scale})`;
@@ -382,7 +395,7 @@ function initHeroParallax() {
   updateHeroParallax();
 }
 
-// Gentle floating elements
+// Floating elements parallax
 function initFloatingParallax() {
   const floatingElements = document.querySelectorAll('.floating-element');
   
@@ -390,9 +403,9 @@ function initFloatingParallax() {
     const scrolled = window.pageYOffset;
     
     floatingElements.forEach((element, index) => {
-      const speed = 0.2 + (index * 0.05); // Much slower speeds
+      const speed = 0.5 + (index * 0.2);
       const yPos = -(scrolled * speed);
-      const xPos = Math.sin(scrolled * 0.0005 + index) * 10; // Much smaller movement
+      const xPos = Math.sin(scrolled * 0.001 + index) * 20;
       
       element.style.transform = `translate(${xPos}px, ${yPos}px)`;
     });
@@ -402,7 +415,7 @@ function initFloatingParallax() {
   updateFloatingParallax();
 }
 
-// Very subtle skills cards parallax
+// Skills cards parallax
 function initSkillsParallax() {
   const skillCards = document.querySelectorAll('.skill-card');
   
@@ -411,11 +424,11 @@ function initSkillsParallax() {
     
     skillCards.forEach((card, index) => {
       const rect = card.getBoundingClientRect();
-      const speed = 0.05 + (index * 0.01); // Very slow speeds
+      const speed = 0.2 + (index * 0.05);
       
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         const yPos = -(scrolled - rect.top) * speed;
-        const rotate = (scrolled * 0.002 + index * 2) % 360; // Much smaller rotation
+        const rotate = (scrolled * 0.01 + index * 10) % 360;
         
         card.style.transform = `translateY(${yPos}px) rotateY(${rotate}deg)`;
       }
@@ -426,7 +439,7 @@ function initSkillsParallax() {
   updateSkillsParallax();
 }
 
-// Very subtle project cards parallax
+// Project cards parallax
 function initProjectsParallax() {
   const projectCards = document.querySelectorAll('.project-card');
   
@@ -435,11 +448,11 @@ function initProjectsParallax() {
     
     projectCards.forEach((card, index) => {
       const rect = card.getBoundingClientRect();
-      const speed = 0.03 + (index * 0.005); // Very slow speeds
+      const speed = 0.15 + (index * 0.03);
       
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         const yPos = -(scrolled - rect.top) * speed;
-        const scale = 1 + (Math.sin(scrolled * 0.0003 + index) * 0.005); // Much smaller scale
+        const scale = 1 + (Math.sin(scrolled * 0.001 + index) * 0.02);
         
         card.style.transform = `translateY(${yPos}px) scale(${scale})`;
       }
