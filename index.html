@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/png" href="images/hello.png">
   <title>Kushal Narendracumar - Rising Data Scientist</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -19,10 +21,12 @@
   </div>
 
   <div class="scroll-progress"></div>
+  
+  <div class="mobile-menu-backdrop"></div>
 
   <header>
     <nav>
-      <div class="logo">KUSHAL NARENDRACUMAR</div>
+      <div class="logo">KN</div>
       <div class="mobile-menu" id="mobileMenu">
         <span></span>
         <span></span>
@@ -105,8 +109,6 @@
         <h2 class="section-title fade-in">Featured Projects</h2>
         <div class="projects-section">
           <div class="projects-carousel-container">
-            <button class="carousel-nav prev" onclick="moveCarousel(-1)">‹</button>
-            <button class="carousel-nav next" onclick="moveCarousel(1)">›</button>
             <div class="carousel-wrapper">
               <div class="projects-carousel">
       
@@ -151,12 +153,21 @@
                     View Project
                   </a>
                 </div>
+                
+                <div class="project-card fade-in">
+                  <h3>Cinescope: Your Movie Companion</h3>
+                  <p>A Django-based platform that allows users to review, rate, and manage their watchlists. Built with a custom admin dashboard and user system.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite</span>
+                  </div>
+                  <a href="https://github.com/Kushal-Narendracumar7/Cinescope-Your-Movie-companion" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i>
+                    View Project
+                  </a>
+                </div>
       
-              </div>
-              <div class="carousel-indicators">
-                <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
-                <div class="carousel-indicator" onclick="goToSlide(1)"></div>
-                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
               </div>
             </div>
           </div>

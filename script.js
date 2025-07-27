@@ -29,6 +29,7 @@ document.querySelectorAll('a, button, .skill-tag').forEach(element => {
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
 const body = document.body;
+const backdrop = document.querySelector('.mobile-menu-backdrop');
 
 // Function to toggle body scroll
 function toggleBodyScroll(disable) {
@@ -50,24 +51,46 @@ mobileMenu.addEventListener('click', () => {
         // Opening menu
         mobileMenu.classList.add('active');
         navLinks.classList.add('active');
+        backdrop.classList.add('active');
         toggleBodyScroll(true);
     } else {
         // Closing menu
         mobileMenu.classList.remove('active');
         navLinks.classList.remove('active');
+        backdrop.classList.remove('active');
         toggleBodyScroll(false);
     }
+});
+
+// Close mobile menu when clicking on backdrop
+backdrop.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    navLinks.classList.remove('active');
+    backdrop.classList.remove('active');
+    toggleBodyScroll(false);
 });
 
 // Close mobile menu when clicking on a link
 navLinks.addEventListener('click', (e) => {
     if (e.target.tagName === 'A') {
-        // Add a small delay for smooth transition
-        setTimeout(() => {
-            mobileMenu.classList.remove('active');
-            navLinks.classList.remove('active');
-            toggleBodyScroll(false);
-        }, 300);
+        // Close menu immediately
+        mobileMenu.classList.remove('active');
+        navLinks.classList.remove('active');
+        backdrop.classList.remove('active');
+        toggleBodyScroll(false);
+        
+        // Handle smooth scrolling
+        const href = e.target.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                // Small delay to ensure menu is closed before scrolling
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
     }
 });
 
@@ -75,9 +98,11 @@ navLinks.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
     if (navLinks.classList.contains('active') && 
         !navLinks.contains(e.target) && 
-        !mobileMenu.contains(e.target)) {
+        !mobileMenu.contains(e.target) &&
+        !backdrop.contains(e.target)) {
         mobileMenu.classList.remove('active');
         navLinks.classList.remove('active');
+        backdrop.classList.remove('active');
         toggleBodyScroll(false);
     }
 });
@@ -87,6 +112,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navLinks.classList.contains('active')) {
         mobileMenu.classList.remove('active');
         navLinks.classList.remove('active');
+        backdrop.classList.remove('active');
         toggleBodyScroll(false);
     }
 });
@@ -148,7 +174,6 @@ const cards = document.querySelectorAll('.project-card');
 const indicators = document.querySelectorAll('.carousel-indicator');
 
 function moveCarousel(direction) {
-    const cardWidth = cards[0].offsetWidth + 32; // card width + gap
     const totalCards = cards.length;
     
     if (direction === 1) {
@@ -166,24 +191,64 @@ function goToSlide(slideIndex) {
 }
 
 function updateCarousel() {
-    const cardWidth = cards[0].offsetWidth + 32;
-    const translateX = -currentSlide * cardWidth;
+    // Check if we're on mobile (carousel should be scrollable)
+    const isMobile = window.innerWidth <= 768;
     
-    carousel.style.transform = `translateX(${translateX}px)`;
-    
-    // Update indicators
-    indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentSlide);
-    });
+    if (isMobile) {
+        // On mobile, just update indicators and let CSS handle the scrolling
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Scroll to the current card
+        if (cards[currentSlide]) {
+            cards[currentSlide].scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest',
+                inline: 'start'
+            });
+        }
+    } else {
+        // On desktop, use transform for smooth sliding
+        const cardWidth = cards[0].offsetWidth + 32; // card width + gap
+        const translateX = -currentSlide * cardWidth;
+        
+        carousel.style.transform = `translateX(${translateX}px)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
 }
+
+// Update carousel on window resize
+window.addEventListener('resize', () => {
+    updateCarousel();
+});
+
+// Update carousel indicators on scroll (for mobile)
+carousel.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+        const scrollLeft = carousel.scrollLeft;
+        const cardWidth = cards[0].offsetWidth + 16; // card width + gap
+        const newSlide = Math.round(scrollLeft / cardWidth);
+        
+        if (newSlide !== currentSlide && newSlide >= 0 && newSlide < cards.length) {
+            currentSlide = newSlide;
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+    }
+});
 
 // Auto-play carousel
 let autoPlayInterval;
 
 function startAutoPlay() {
-    autoPlayInterval = setInterval(() => {
-        moveCarousel(1);
-    }, 5000);
+    // Disable auto-play since we only have 3 projects
+    return;
 }
 
 function stopAutoPlay() {
@@ -192,12 +257,15 @@ function stopAutoPlay() {
 
 // Start auto-play when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    // Don't start auto-play for 3 projects
     startAutoPlay();
     
     // Pause auto-play on hover
     const carouselWrapper = document.querySelector('.carousel-wrapper');
-    carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
-    carouselWrapper.addEventListener('mouseleave', startAutoPlay);
+    if (carouselWrapper) {
+        carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
+        carouselWrapper.addEventListener('mouseleave', startAutoPlay);
+    }
 });
 
 // Parallax effect for floating elements
