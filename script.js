@@ -120,10 +120,25 @@ document.addEventListener('keydown', (e) => {
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        
+        // Don't prevent default for external links or if it's the CTA button
+        if (href === '#projects' && this.classList.contains('cta-button')) {
+            // Allow normal behavior for CTA button
+            return;
+        }
+        
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Add offset for fixed header
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         }
     });
 });
@@ -227,21 +242,21 @@ window.addEventListener('resize', () => {
     updateCarousel();
 });
 
-// Update carousel indicators on scroll (for mobile)
-carousel.addEventListener('scroll', () => {
-    if (window.innerWidth <= 768) {
-        const scrollLeft = carousel.scrollLeft;
-        const cardWidth = cards[0].offsetWidth + 16; // card width + gap
-        const newSlide = Math.round(scrollLeft / cardWidth);
-        
-        if (newSlide !== currentSlide && newSlide >= 0 && newSlide < cards.length) {
-            currentSlide = newSlide;
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentSlide);
-            });
-        }
-    }
-});
+// Remove the carousel scroll event listener that interferes with page scrolling
+// carousel.addEventListener('scroll', () => {
+//     if (window.innerWidth <= 768) {
+//         const scrollLeft = carousel.scrollLeft;
+//         const cardWidth = cards[0].offsetWidth + 16; // card width + gap
+//         const newSlide = Math.round(scrollLeft / cardWidth);
+//         
+//         if (newSlide !== currentSlide && newSlide >= 0 && newSlide < cards.length) {
+//             currentSlide = newSlide;
+//             indicators.forEach((indicator, index) => {
+//                 indicator.classList.toggle('active', index === currentSlide);
+//             });
+//         }
+//     }
+// });
 
 // Auto-play carousel
 let autoPlayInterval;
@@ -257,15 +272,15 @@ function stopAutoPlay() {
 
 // Start auto-play when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    // Don't start auto-play for 3 projects
-    //startAutoPlay();
+    // Completely disable auto-play for 3 projects
+    // No auto-play functionality needed
     
-    // Pause auto-play on hover
-    const carouselWrapper = document.querySelector('.carousel-wrapper');
-    if (carouselWrapper) {
-        carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
-        carouselWrapper.addEventListener('mouseleave', startAutoPlay);
-    }
+    // Remove carousel hover events since we don't have auto-play
+    // const carouselWrapper = document.querySelector('.carousel-wrapper');
+    // if (carouselWrapper) {
+    //     carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
+    //     carouselWrapper.addEventListener('mouseleave', startAutoPlay);
+    // }
 });
 
 // Parallax effect for floating elements
