@@ -160,9 +160,8 @@
     }
 
     .logo {
-        font-family: 'Cinzel Decorative', serif;
-        color: gold;
-        font-size: 2rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
         letter-spacing: 2px;
         height:100%;
         width:100%;
@@ -572,7 +571,6 @@
     .projects-image-container img {
         width: 100%;
         height: auto;
-        border-radius: 20px;
         transition: transform 0.3s ease;
     }
 
@@ -1074,14 +1072,15 @@
   
     .nav-links {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      width: 90%;
-      max-width: 400px;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      width: auto;
+      max-width: none;
       height: auto;
-      min-height: 300px;
-      max-height: 80vh;
+      min-height: auto;
+      max-height: none;
       background: rgba(10, 10, 10, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -1097,6 +1096,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
     }
     
     .nav-links::before {
@@ -1131,7 +1131,7 @@
     }
     
     .nav-links.active { 
-      transform: translate(-50%, -50%) scale(1); 
+      transform: scale(1); 
       opacity: 1; 
       visibility: visible; 
     }

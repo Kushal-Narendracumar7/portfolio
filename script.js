@@ -258,7 +258,7 @@ function stopAutoPlay() {
 // Start auto-play when page loads
 document.addEventListener('DOMContentLoaded', () => {
     // Don't start auto-play for 3 projects
-    startAutoPlay();
+    //startAutoPlay();
     
     // Pause auto-play on hover
     const carouselWrapper = document.querySelector('.carousel-wrapper');
