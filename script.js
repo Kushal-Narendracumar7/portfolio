@@ -28,17 +28,66 @@ document.querySelectorAll('a, button, .skill-tag').forEach(element => {
 // Mobile Menu Toggle
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
+const body = document.body;
+
+// Function to toggle body scroll
+function toggleBodyScroll(disable) {
+    if (disable) {
+        body.style.overflow = 'hidden';
+        body.style.position = 'fixed';
+        body.style.width = '100%';
+    } else {
+        body.style.overflow = '';
+        body.style.position = '';
+        body.style.width = '';
+    }
+}
 
 mobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    navLinks.classList.toggle('active');
+    const isActive = mobileMenu.classList.contains('active');
+    
+    if (!isActive) {
+        // Opening menu
+        mobileMenu.classList.add('active');
+        navLinks.classList.add('active');
+        toggleBodyScroll(true);
+    } else {
+        // Closing menu
+        mobileMenu.classList.remove('active');
+        navLinks.classList.remove('active');
+        toggleBodyScroll(false);
+    }
 });
 
 // Close mobile menu when clicking on a link
 navLinks.addEventListener('click', (e) => {
     if (e.target.tagName === 'A') {
+        // Add a small delay for smooth transition
+        setTimeout(() => {
+            mobileMenu.classList.remove('active');
+            navLinks.classList.remove('active');
+            toggleBodyScroll(false);
+        }, 300);
+    }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && 
+        !navLinks.contains(e.target) && 
+        !mobileMenu.contains(e.target)) {
         mobileMenu.classList.remove('active');
         navLinks.classList.remove('active');
+        toggleBodyScroll(false);
+    }
+});
+
+// Close mobile menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        navLinks.classList.remove('active');
+        toggleBodyScroll(false);
     }
 });
 
