@@ -25,26 +25,47 @@ document.querySelectorAll('a, button, .skill-tag').forEach(element => {
     });
 });
 
-// Mobile Menu Toggle
+// Mobile Menu Toggle - FIXED VERSION
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
 const body = document.body;
-const backdrop = document.querySelector('.mobile-menu-backdrop');
+let backdrop = document.querySelector('.mobile-menu-backdrop');
 
-// Function to toggle body scroll
+// Create backdrop if it doesn't exist
+if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'mobile-menu-backdrop';
+    document.body.appendChild(backdrop);
+}
+
+// Function to toggle body scroll and prevent background scrolling
 function toggleBodyScroll(disable) {
     if (disable) {
-        body.style.overflow = 'hidden';
+        // Store current scroll position
+        const scrollY = window.scrollY;
         body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
         body.style.width = '100%';
+        body.style.overflow = 'hidden';
+        body.classList.add('menu-open');
     } else {
-        body.style.overflow = '';
+        // Restore scroll position
+        const scrollY = body.style.top;
         body.style.position = '';
+        body.style.top = '';
         body.style.width = '';
+        body.style.overflow = '';
+        body.classList.remove('menu-open');
+        if (scrollY) {
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
     }
 }
 
-mobileMenu.addEventListener('click', () => {
+mobileMenu.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
     const isActive = mobileMenu.classList.contains('active');
     
     if (!isActive) {
@@ -70,7 +91,7 @@ backdrop.addEventListener('click', () => {
     toggleBodyScroll(false);
 });
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking on a link - FIXED VERSION
 navLinks.addEventListener('click', (e) => {
     if (e.target.tagName === 'A') {
         // Close menu immediately
@@ -79,16 +100,22 @@ navLinks.addEventListener('click', (e) => {
         backdrop.classList.remove('active');
         toggleBodyScroll(false);
         
-        // Handle smooth scrolling
+        // Handle smooth scrolling only for hash links
         const href = e.target.getAttribute('href');
-        if (href && href.startsWith('#')) {
+        if (href && href.startsWith('#') && href !== '#') {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                // Small delay to ensure menu is closed before scrolling
+                // Small delay to ensure menu is closed and body scroll is restored
                 setTimeout(() => {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 150);
             }
         }
     }
@@ -117,20 +144,31 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Smooth scrolling for navigation links
+// FIXED: Smooth scrolling for navigation links - prevent unwanted auto-scrolling
+let isUserScroll = true;
+let scrollTimeout;
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
         
-        // Don't prevent default for external links or if it's the CTA button
-        if (href === '#projects' && this.classList.contains('cta-button')) {
-            // Allow normal behavior for CTA button
+        // Skip empty hash or just # 
+        if (!href || href === '#') {
+            return;
+        }
+        
+        // Don't prevent default for CTA button or external links
+        if (this.classList.contains('cta-button') && href === '#projects') {
             return;
         }
         
         e.preventDefault();
+        
         const target = document.querySelector(href);
         if (target) {
+            // Set flag to indicate this is programmatic scroll
+            isUserScroll = false;
+            
             // Add offset for fixed header
             const headerHeight = document.querySelector('header').offsetHeight;
             const targetPosition = target.offsetTop - headerHeight - 20;
@@ -139,15 +177,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+            
+            // Reset flag after scroll completes
+            setTimeout(() => {
+                isUserScroll = true;
+            }, 1000);
         }
     });
+});
+
+// Prevent unwanted scrolling on page load and user scroll
+window.addEventListener('scroll', () => {
+    // Clear any existing timeout
+    clearTimeout(scrollTimeout);
+    
+    // Set timeout to ensure scroll has stopped
+    scrollTimeout = setTimeout(() => {
+        isUserScroll = true;
+    }, 150);
 });
 
 // Scroll Progress
 function updateScrollProgress() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / scrollHeight) * 100;
+    const scrollPercent = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100));
     document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
 }
 
@@ -163,7 +217,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for fade-in animations
+// FIXED: Intersection Observer for fade-in animations - prevent auto-scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -171,7 +225,7 @@ const observerOptions = {
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && isUserScroll) {
             entry.target.classList.add('visible');
         }
     });
@@ -242,47 +296,6 @@ window.addEventListener('resize', () => {
     updateCarousel();
 });
 
-// Remove the carousel scroll event listener that interferes with page scrolling
-// carousel.addEventListener('scroll', () => {
-//     if (window.innerWidth <= 768) {
-//         const scrollLeft = carousel.scrollLeft;
-//         const cardWidth = cards[0].offsetWidth + 16; // card width + gap
-//         const newSlide = Math.round(scrollLeft / cardWidth);
-//         
-//         if (newSlide !== currentSlide && newSlide >= 0 && newSlide < cards.length) {
-//             currentSlide = newSlide;
-//             indicators.forEach((indicator, index) => {
-//                 indicator.classList.toggle('active', index === currentSlide);
-//             });
-//         }
-//     }
-// });
-
-// Auto-play carousel
-let autoPlayInterval;
-
-function startAutoPlay() {
-    // Disable auto-play since we only have 3 projects
-    return;
-}
-
-function stopAutoPlay() {
-    clearInterval(autoPlayInterval);
-}
-
-// Start auto-play when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // Completely disable auto-play for 3 projects
-    // No auto-play functionality needed
-    
-    // Remove carousel hover events since we don't have auto-play
-    // const carouselWrapper = document.querySelector('.carousel-wrapper');
-    // if (carouselWrapper) {
-    //     carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
-    //     carouselWrapper.addEventListener('mouseleave', startAutoPlay);
-    // }
-});
-
 // Parallax effect for floating elements
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
@@ -321,12 +334,12 @@ document.querySelectorAll('.cta-button, .project-link, .resume-button').forEach(
     });
 });
 
-// Smooth reveal animations
+// FIXED: Smooth reveal animations - prevent auto-scroll
 const revealElements = document.querySelectorAll('.fade-in');
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && isUserScroll) {
             setTimeout(() => {
                 entry.target.classList.add('visible');
             }, index * 100);
@@ -339,4 +352,29 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => {
     revealObserver.observe(el);
+});
+
+// Prevent any unwanted scrolling on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure page starts at top
+    setTimeout(() => {
+        if (window.scrollY > 0) {
+            window.scrollTo(0, 0);
+        }
+        isUserScroll = true;
+    }, 100);
+});
+
+// Additional safety: prevent hash-based scrolling on page load
+window.addEventListener('load', () => {
+    // Reset scroll position if hash is present but not intended
+    if (window.location.hash && window.location.hash !== '#') {
+        // Check if user actually intended to scroll to that section
+        const target = document.querySelector(window.location.hash);
+        if (target && window.scrollY === 0) {
+            // If we're at top but hash exists, user probably just loaded the page
+            history.replaceState(null, null, window.location.pathname);
+        }
+    }
+    isUserScroll = true;
 });
