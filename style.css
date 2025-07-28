@@ -5,67 +5,54 @@
       box-sizing: border-box;
     }
 :root {
-  /* Light Mode - Classic Burgundy & Cream */
-  --bg-primary: #fdfaf7;        /* Soft cream */
-  --bg-secondary: #f7f2ef;      /* Muted beige */
-  --bg-tertiary: #efe9e6;       /* Pale rose-beige */
-
-  --text-primary: #2b1216;      /* Deep burgundy brown */
-  --text-secondary: #5c2b30;    /* Warm cocoa */
-  --text-muted: #967575;        /* Dusty rose */
-
-  --accent-primary: #800020;    /* Classic Burgundy */
-  --accent-secondary: #a0522d;  /* Sienna brown */
-  --accent-soft-gold: #dcbfa6;  /* Champagne cream */
-  --accent-blush: #d4b4a4;      /* Blush clay */
-
-  --accent-gradient: linear-gradient(135deg, #800020 0%, #a0522d 50%, #dcbfa6 100%);
-  --royal-gradient: linear-gradient(135deg, #5c2b30 0%, #800020 50%, #dcbfa6 100%);
-
-  --border-color: rgba(128, 0, 32, 0.15);
-  --shadow-light: rgba(128, 0, 32, 0.05);
-  --shadow-medium: rgba(128, 0, 32, 0.15);
-  --shadow-heavy: rgba(128, 0, 32, 0.3);
-
+  /* Light Mode - Royal Navy & Champagne Gold */
+  --bg-primary: #fdfcfa;        /* Warm ivory */
+  --bg-secondary: #f8f6f2;      /* Pearl white */
+  --bg-tertiary: #f2efea;       /* Soft cream */
+  --text-primary: #1a1b23;      /* Deep navy */
+  --text-secondary: #3a3d4a;    /* Slate blue */
+  --text-muted: #6b7280;        /* Cool gray */
+  --accent-primary: #2c3e50;    /* Royal navy */
+  --accent-secondary: #d4af37;  /* Classic gold */
+  --accent-soft-gold: #f4e5c1;  /* Champagne cream */
+  --accent-blush: #e8dcc0;      /* Warm cream */
+  --accent-gradient: linear-gradient(135deg, #2c3e50 0%, #d4af37 50%, #f4e5c1 100%);
+  --royal-gradient: linear-gradient(135deg, #3a3d4a 0%, #2c3e50 50%, #f4e5c1 100%);
+  --border-color: rgba(44, 62, 80, 0.15);
+  --shadow-light: rgba(44, 62, 80, 0.05);
+  --shadow-medium: rgba(44, 62, 80, 0.15);
+  --shadow-heavy: rgba(44, 62, 80, 0.3);
   --glass-bg: rgba(255, 255, 255, 0.3);
-  --glass-border: rgba(128, 0, 32, 0.2);
-
-  --success-color: #2e8b57;
-  --warning-color: #e69500;
-  --error-color: #a83232;
+  --glass-border: rgba(44, 62, 80, 0.2);
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
 }
 
 [data-theme="dark"] {
-  /* Dark Mode - Classic Burgundy & Cream */
-  --bg-primary: #1a0b0e;        /* Dark burgundy base */
-  --bg-secondary: #2b1216;      /* Rich merlot */
-  --bg-tertiary: #3c1e23;       /* Deep wine brown */
-
-  --text-primary: #f5f0eb;      /* Soft ivory */
-  --text-secondary: #ddc7c1;    /* Creamy rose */
-  --text-muted: #bfa8a2;        /* Dusty beige */
-
-  --accent-primary: #d04e5a;    /* Soft crimson */
-  --accent-secondary: #c17857;  /* Burnt sienna */
-  --accent-soft-gold: #dcbfa6;  /* Champagne cream */
-  --accent-blush: #d9aead;      /* Blush muted red */
-
-  --accent-gradient: linear-gradient(135deg, #d04e5a 0%, #c17857 50%, #dcbfa6 100%);
-  --royal-gradient: linear-gradient(135deg, #d9aead 0%, #d04e5a 50%, #dcbfa6 100%);
-
-  --border-color: rgba(208, 78, 90, 0.2);
+  /* Dark Mode - Midnight Navy & Warm Gold */
+  --bg-primary: #0f1419;        /* Deep midnight */
+  --bg-secondary: #1a1f2e;      /* Rich navy */
+  --bg-tertiary: #242b3c;       /* Elevated navy */
+  --text-primary: #f8fafc;      /* Soft white */
+  --text-secondary: #cbd5e1;    /* Cool silver */
+  --text-muted: #94a3b8;        /* Muted silver */
+  --accent-primary: #4a90e2;    /* Royal blue */
+  --accent-secondary: #f1c40f;  /* Bright gold */
+  --accent-soft-gold: #f4e5c1;  /* Champagne cream */
+  --accent-blush: #3a3d4a;      /* Muted slate */
+  --accent-gradient: linear-gradient(135deg, #4a90e2 0%, #f1c40f 50%, #f4e5c1 100%);
+  --royal-gradient: linear-gradient(135deg, #3a3d4a 0%, #4a90e2 50%, #f4e5c1 100%);
+  --border-color: rgba(74, 144, 226, 0.2);
   --shadow-light: rgba(0, 0, 0, 0.15);
   --shadow-medium: rgba(0, 0, 0, 0.25);
   --shadow-heavy: rgba(0, 0, 0, 0.4);
-
-  --glass-bg: rgba(26, 11, 14, 0.3);
-  --glass-border: rgba(208, 78, 90, 0.2);
-
-  --success-color: #3cb371;
-  --warning-color: #f0a500;
-  --error-color: #e57373;
+  --glass-bg: rgba(15, 20, 25, 0.3);
+  --glass-border: rgba(74, 144, 226, 0.2);
+  --success-color: #22c55e;
+  --warning-color: #fbbf24;
+  --error-color: #f87171;
 }
-
     html {
       scroll-behavior: smooth;
       cursor: none;
