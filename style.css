@@ -392,7 +392,7 @@ a:hover {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
 }
@@ -838,6 +838,7 @@ a:hover {
         opacity: 0;
         visibility: hidden;
         transition: var(--transition);
+        
     }
     
     .nav-menu.active {
@@ -862,7 +863,9 @@ a:hover {
         transform: rotate(-45deg) translate(8px, -8px);
     }
     
+
     .hero-avatar {
+        margin-top: 100px;
         width: 250px;
         height: 250px;
     }
