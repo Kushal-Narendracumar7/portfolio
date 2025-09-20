@@ -1,368 +1,1014 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kushal Narendracumar - Data Analyst & Developer</title>
-    <meta
-      name="description"
-      content="Data Analyst and Developer passionate about transforming data into compelling stories"
-    />
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Kushal Narendracumar - Data Scientist & Developer</title>
+    <meta name="description" content="Aspiring Data Scientist specializing in uncovering insights from data using Python, SQL & PowerBI. Passionate about real-world impact through analytics and machine learning." />
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">KN</div>
+            <div class="loader-text">Loading Portfolio...</div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav" id="nav">
-      <div class="nav-container">
-        <a href="#home" class="nav-logo">KN</a>
-        <div class="nav-menu" id="nav-menu">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#experience" class="nav-link">Experience</a>
-          <a href="#contact" class="nav-link">Contact</a>
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>KN<span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="nav-toggle" id="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-text">
-            <span class="hero-greeting">Hello, I'm</span>
-            <h1 class="hero-title">Kushal Narendracumar</h1>
-            <p class="hero-subtitle">Data Analyst & Developer</p>
-            <p class="hero-description">
-              Transforming raw data into compelling stories and building
-              innovative solutions that drive meaningful impact.
-            </p>
-            <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary">View Projects</a>
-              <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="hero-avatar">
-              <div class="avatar-placeholder">
-                <img src="images/memoji.png" alt="User avatar" />
-              </div>
-            </div>
-          </div>
+        <div class="hero-bg">
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-gradient"></div>
         </div>
-      </div>
-      <div class="scroll-indicator">
-        <div class="scroll-line"></div>
-        <span>Scroll</span>
-      </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting fade-in">
+                        <span class="greeting-icon">👋</span>
+                        <span>Hello, I'm</span>
+                    </div>
+                    <h1 class="hero-title fade-in-delay">Kushal Narendracumar</h1>
+                    <div class="hero-subtitle fade-in-delay">
+                        <span class="typewriter" data-text="Data Scientist,Python Developer,Analytics Expert,Machine Learning Enthusiast"></span>
+                    </div>
+                    <p class="hero-description fade-in-delay">
+                        Transforming raw data into compelling stories and building innovative solutions that drive meaningful impact. 
+                        Passionate about uncovering insights that shape smarter decisions.
+                    </p>
+                    <div class="hero-stats fade-in-delay">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="15">0</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="2">0</span>
+                            <span class="stat-label">Years Learning</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons fade-in-delay">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Get In Touch</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                   
+                </div>
+                <div class="hero-visual fade-in-delay">
+                    <div class="hero-avatar">
+                        <div class="avatar-container">
+                            <img src="images/memoji.png" alt="Kushal Narendracumar" />
+                            <div class="avatar-border"></div>
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <div class="floating-icons">
+                            <div class="floating-icon" data-delay="0">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="floating-icon" data-delay="0.5">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="floating-icon" data-delay="1">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="floating-icon" data-delay="1.5">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll Down</span>
+        </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">About Me</h2>
-          <div class="section-line"></div>
-        </div>
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              Driven by curiosity and a passion for data, I thrive on
-              transforming raw numbers into compelling stories. Whether it's
-              uncovering hidden shopping patterns, analyzing industry layoffs,
-              or building insightful dashboards, I believe data has the power to
-              shape smarter decisions.
-            </p>
-            <p>
-              Beyond analytics, I'm crafting innovative solutions like
-              Cinescope, a movie review platform built with Django. My work
-              reflects a blend of analytical precision and creative design.
-            </p>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <i class="fab fa-python"></i>
-                <span>Python</span>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-database"></i>
-                <span>SQL</span>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-chart-bar"></i>
-                <span>Power BI</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-html5"></i>
-                <span>HTML/CSS</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-js"></i>
-                <span>JavaScript</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-java"></i>
-                <span>Java</span>
-              </div>
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get To Know More</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
             </div>
-          </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-intro">
+                        <h3>Turning Data Into Stories</h3>
+                        <p>
+                            I'm a passionate data scientist with a knack for transforming complex datasets into actionable insights. 
+                            My journey began with curiosity about patterns in everyday life, which led me to discover the fascinating 
+                            world of data analytics and machine learning.
+                        </p>
+                    </div>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h4>Education</h4>
+                                <p>Currently pursuing Computer Engineering with a focus on Data Science and Analytics</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h4>Specialization</h4>
+                                <p>Data Analysis, Machine Learning, Web Development, and Business Intelligence</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h4>Passion</h4>
+                                <p>Creating innovative solutions that bridge the gap between data and decision-making</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-quote">
+                        <blockquote>
+                            “The journey of a thousand miles begins with a single step.”
+                            <cite>– Lao Tzu</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What I Bring</span>
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-content">
+                <div class="skills-categories">
+                    <div class="skill-category active" data-category="technical">
+                        <i class="fas fa-code"></i>
+                        <span>Technical</span>
+                    </div>
+                    <div class="skill-category" data-category="data">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Data Science</span>
+                    </div>
+                    <div class="skill-category" data-category="tools">
+                        <i class="fas fa-tools"></i>
+                        <span>Tools</span>
+                    </div>
+                    <div class="skill-category" data-category="soft">
+                        <i class="fas fa-users"></i>
+                        <span>Soft Skills</span>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <!-- Technical Skills -->
+                    <div class="skills-group active" data-group="technical">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Python</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>SQL</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>HTML/CSS</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Science Skills -->
+                    <div class="skills-group" data-group="data">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <!-- <div class="skill-info">
+                                <h4>Machine Learning</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                                <span class="skill-percentage">80%</span>
+                            </div>-->
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Data Analysis</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Data Visualization</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="87"></div>
+                                </div>
+                                <span class="skill-percentage">87%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Statistical Analysis</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="60"></div>
+                                </div>
+                                <span class="skill-percentage">60%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools -->
+                    <div class="skills-group" data-group="tools">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Power BI</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="60"></div>
+                                </div>
+                                <span class="skill-percentage">60%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Git/GitHub</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Excel</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>MySQL</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Soft Skills -->
+                    <div class="skills-group" data-group="soft">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Problem Solving</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="95"></div>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Team Collaboration</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Communication</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Time Management</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Featured Projects</h2>
-          <div class="section-line"></div>
-        </div>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-overlay">
-                <a
-                  href="https://github.com/Kushal-Narendracumar7/GTD_Analysis"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    A collection of projects showcasing my skills in data analysis, machine learning, and web development
+                </p>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">Global Terrorism Analysis</h3>
-              <p class="project-description">
-                Data-driven analysis and visualization of global terrorism
-                patterns from 1970-2017, revealing insights into attack trends
-                and patterns.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Power BI</span>
-              </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
+                <button class="filter-btn" data-filter="web-dev">Web Development</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
             </div>
-          </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="data-analysis">
+                    <div class="project-image">
+                        <div class="project-preview">
+                            <img src="images/Global_Terrorism_Index.png" alt="Global Terrorism Analysis" />
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Kushal-Narendracumar7/GlobalTerrorismDataset_Analysis" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link demo-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Global Terrorism Analysis</h3>
+                            <div class="project-status featured">Featured</div>
+                        </div>
+                        <p class="project-description">
+                            Comprehensive analysis of global terrorism patterns from 1970-2017, revealing insights into attack trends, 
+                            geographical patterns, and temporal distributions using advanced data visualization techniques.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-database"></i>
+                                <span>180K+ Records</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>15+ Visualizations</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Pandas</span>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-overlay">
-                <a
-                  href="https://github.com/Kushal-Narendracumar7/LayOff_Data_Analysis"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Layoff Data Analysis</h3>
-              <p class="project-description">
-                Comprehensive analysis of workforce shifts and layoff trends
-                from 2020-2024, providing insights into industry patterns.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Power BI</span>
-              </div>
-            </div>
-          </div>
+                <div class="project-card" data-category="data-analysis">
+                    <div class="project-image">
+                        <div class="project-preview">
+                            <img src="images/layoff.svg" alt="Layoff Data Analysis" />
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Kushal-Narendracumar7/LayOff_Data_Analysis" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link demo-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Layoff Data Analysis</h3>
+                            <div class="project-status">Recent</div>
+                        </div>
+                        <p class="project-description">
+                            In-depth analysis of workforce reduction trends from 2020-2024, identifying industry patterns, 
+                            company impacts, and economic correlations during the post-pandemic era.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-building"></i>
+                                <span>100+ Companies</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>3 Years Data</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-overlay">
-                <a
-                  href="https://github.com/Kushal-Narendracumar7/Student_Depression_Analysis"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i>
+                <div class="project-card" data-category="data-analysis ml">
+                    <div class="project-image">
+                        <div class="project-preview">
+                            <img src="images/depression.avif" alt="Student Depression Analysis" />
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Kushal-Narendracumar7/Student_Depression_Analysis" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link demo-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Student Mental Health Analysis</h3>
+                            <div class="project-status">Impact</div>
+                        </div>
+                        <p class="project-description">
+                            Exploring mental health trends in student populations through statistical analysis and machine learning, 
+                            providing insights into depression patterns and contributing factors.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>10K+ Students</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-brain"></i>
+                                <span>Data Visualizations </span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Seaborn</span>
+                            <span class="tech-tag">Statistics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web-dev">
+                    <div class="project-image">
+                        <div class="project-preview">
+                            <img src="images/cinescope.png" alt="Cinescope Platform" />
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Kushal-Narendracumar7/Cinescope-Your-Movie-companion" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link demo-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Cinescope: Movie Platform</h3>
+                            <div class="project-status web">Web App</div>
+                        </div>
+                        <p class="project-description">
+                            A comprehensive Django-based movie review platform with user authentication, watchlist management, 
+                            and an intuitive admin dashboard for content management.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-film"></i>
+                                <span>Movie Database</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>User System</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-footer">
+                <a href="https://github.com/Kushal-Narendracumar7" class="btn btn-outline" target="_blank">
+                    <span>View All Projects</span>
+                    <i class="fab fa-github"></i>
                 </a>
-              </div>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">Student Depression Analysis</h3>
-              <p class="project-description">
-                Exploring mental health trends in student populations through
-                data analysis, providing insights into depression patterns.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Power BI</span>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="projects-footer">
-          <a
-            href="https://github.com/Kushal-Narendracumar7"
-            class="btn btn-outline"
-            target="_blank"
-          >
-            View All Projects <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Experience & Certifications</h2>
-          <div class="section-line"></div>
+    <section id="experience" class="experience section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Experience & Certifications</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="experience-content">
+                <div class="experience-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Data Analyst Intern</h3>
+                                <span class="timeline-period">Dec 2024 - June 2025</span>
+                            </div>
+                            <div class="timeline-company">
+                                <i class="fas fa-building"></i>
+                                BitInfotech
+                            </div>
+                            <ul class="timeline-details">
+                                <li>Analyzed large datasets to identify trends and patterns using Python and SQL</li>
+                                <li>Created interactive dashboards using Power BI, improving decision-making processes</li>
+                                <li>Collaborated with cross-functional teams to deliver data-driven insights</li>
+                                <li>Implemented data cleaning and preprocessing workflows for better data quality</li>
+                            </ul>
+                            <div class="timeline-skills">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">SQL</span>
+                                <span class="skill-badge">Power BI</span>
+                                <span class="skill-badge">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certifications-section">
+                    <h3 class="certifications-title">Professional Certifications</h3>
+                    <div class="certifications-grid">
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <div class="cert-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="cert-badge">Verified</div>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Deloitte Data Analytics Simulation</h4>
+                                <p class="cert-issuer">Forage Platform</p>
+                                <p class="cert-description">
+                                    Comprehensive simulation covering advanced statistical analysis, 
+                                    data visualization, and business intelligence concepts.
+                                </p>
+                                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_bqe62phvE3KRjbTSe_1750167712953_completion_certificate.pdf" 
+                                   class="cert-link" target="_blank">
+                                    <i class="fas fa-certificate"></i>
+                                    View Certificate
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <div class="cert-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="cert-badge">Verified</div>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Tata Data Visualization</h4>
+                                <p class="cert-issuer">Forage Platform</p>
+                                <p class="cert-description">
+                                    Advanced data visualization techniques, dashboard creation, 
+                                    and storytelling with data using industry-standard tools.
+                                </p>
+                                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750529095893_completion_certificate.pdf" 
+                                   class="cert-link" target="_blank">
+                                    <i class="fas fa-certificate"></i>
+                                    View Certificate
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <div class="cert-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="cert-badge">Verified</div>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Tata GenAI Data Analytics</h4>
+                                <p class="cert-issuer">Forage Platform</p>
+                                <p class="cert-description">
+                                    Cutting-edge AI and machine learning applications in data analytics, 
+                                    including generative AI models and automated analysis.
+                                </p>
+                                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_bqe62phvE3KRjbTSe_1750258127521_completion_certificate.pdf" 
+                                   class="cert-link" target="_blank">
+                                    <i class="fas fa-certificate"></i>
+                                    View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="experience-content">
-          <div class="experience-item">
-            <div class="experience-header">
-              <h3>Data Analyst Intern</h3>
-              <span class="experience-period">Dec 2024 - June 2025</span>
-            </div>
-            <div class="experience-company">BitInfotech</div>
-            <ul class="experience-details">
-              <li>Analyzed large datasets to identify trends and patterns</li>
-              <li>Created interactive dashboards using Power BI</li>
-              <li>
-                Collaborated with cross-functional teams to deliver insights
-              </li>
-            </ul>
-          </div>
-
-          <div class="certifications-grid">
-            <div class="cert-card">
-              <div class="cert-icon">
-                <i class="fas fa-award"></i>
-              </div>
-              <h4>Deloitte Data Analytics</h4>
-              <p>Forage Simulation</p>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <h4>Tata Data Visualization</h4>
-              <p>Forage Simulation</p>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">
-                <i class="fas fa-brain"></i>
-              </div>
-              <h4>Tata GenAI Analytics</h4>
-              <p>Forage Simulation</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <!--<section id="testimonials" class="testimonials section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What Others Say</span>
+                <h2 class="section-title">Testimonials</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="testimonials-content">
+                <div class="testimonials-slider">
+                    <div class="testimonial-item active">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Kushal's analytical skills and attention to detail are exceptional. His ability to transform complex data 
+                                into actionable insights has been invaluable to our projects."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Project Supervisor</h4>
+                                    <p>BitInfotech</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Working with Kushal on the terrorism analysis project was enlightening. His systematic approach 
+                                and innovative visualization techniques brought new perspectives to our research."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Research Colleague</h4>
+                                    <p>Data Science Team</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Kushal's dedication to learning and his collaborative spirit make him a valuable team member. 
+                                His technical skills continue to impress as he tackles complex challenges."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Peer Collaborator</h4>
+                                    <p>Academic Project</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonials-nav">
+                    <button class="nav-dot active" data-slide="0"></button>
+                    <button class="nav-dot" data-slide="1"></button>
+                    <button class="nav-dot" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Let's Connect</h2>
-          <div class="section-line"></div>
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    Ready to collaborate on your next data project? I'm always excited to discuss new opportunities and challenges.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <h3>Let's Start a Conversation</h3>
+                        <p>
+                            Whether you have a project in mind, need data insights, or just want to connect, 
+                            I'm here to help bring your ideas to life through data-driven solutions.
+                        </p>
+                    </div>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Email</h4>
+                                <a href="mailto:kushalbamania7@gmail.com">kushalbamania7@gmail.com</a>
+                                <p>I'll respond within 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/kushal-narendracumar-08633a24a/" target="_blank">
+                                    Connect with me
+                                </a>
+                                <p>Professional networking</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/Kushal-Narendracumar7" target="_blank">
+                                    View my code
+                                </a>
+                                <p>Open source contributions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="availability-status">
+                        <div class="status-indicator available"></div>
+                        <span>Currently available for new projects</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="firstName" name="firstName" required />
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="lastName" name="lastName" required />
+                                <label for="lastName">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required />
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required />
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="projectType" name="projectType" required>
+                                <option value="">Select Project Type</option>
+                                <option value="data-analysis">Data Analysis</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="projectType">Project Type</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="resume-section">
+                <div class="resume-card">
+                    <div class="resume-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="resume-content">
+                        <h3>Download My Resume</h3>
+                        <p>Get detailed information about my experience, skills, and achievements</p>
+                        <a href="resume/Kushal's Resume.pdf" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-download"></i>
+                            <span>Download PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="contact-content">
-          <div class="contact-info">
-            <p>
-              Ready to collaborate on your next project? Let's discuss how we
-              can work together.
-            </p>
-            <div class="contact-links">
-              <a href="mailto:kushalbamania7@gmail.com" class="contact-link">
-                <i class="fas fa-envelope"></i>
-                <span>kushalbamania7@gmail.com</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/kushal-narendracumar-08633a24a/""
-                class="contact-link"
-                target="_blank"
-              >
-                <i class="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href="https://github.com/Kushal-Narendracumar7"
-                class="contact-link"
-                target="_blank"
-              >
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-              </a>
-            </div>
-          </div>
-          <form class="contact-form" id="contact-form">
-            <div class="form-group">
-              <input type="text" id="name" name="name" required />
-              <label for="name">Your Name</label>
-            </div>
-            <div class="form-group">
-              <input type="email" id="email" name="email" required />
-              <label for="email">Your Email</label>
-            </div>
-            <div class="form-group">
-              <textarea id="message" name="message" required></textarea>
-              <label for="message">Your Message</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-          </form>
-        </div>
-        <div class="resume-download">
-          <a href="resume/Kushal's Resume.pdf" class="btn btn-outline" target="_blank">
-            <i class="fas fa-download"></i>
-            Download Resume
-          </a>
-        </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <p>&copy; 2025 Kushal Narendracumar. All rights reserved.</p>
-          <div class="social-links">
-            <a href="https://github.com/Kushal-Narendracumar7" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/kushal-narendracumar-08633a24a/"
-              target="_blank"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.instagram.com/duskborne.__057/" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <span class="logo-bracket">&lt;</span>KN<span class="logo-bracket">/&gt;</span>
+                        </div>
+                        <p>Turning data into stories, insights into impact.</p>
+                        <div class="footer-social">
+                            <a href="https://github.com/Kushal-Narendracumar7" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kushal-narendracumar-08633a24a/" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/duskborne.__057/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Navigation</h4>
+                            <ul>
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#skills">Skills</a></li>
+                                <li><a href="#projects">Projects</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Connect</h4>
+                            <ul>
+                                <li><a href="#experience">Experience</a></li>
+                                <li><a href="#testimonials">Testimonials</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                                <li><a href="resume/Kushal's Resume.pdf" target="_blank">Resume</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Kushal Narendracumar. All rights reserved.</p>
+                    </div>
+                    <div class="footer-built">
+                        <p>Built with <i class="fas fa-heart"></i> using modern web technologies</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="back-to-top">
-      <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Cursor -->
+    <div class="cursor" id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
